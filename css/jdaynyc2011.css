@@ -1,5 +1,8 @@
 html {
-    background: #240d1d url('../images/warty-final-ubuntu.png') 50% 50%;
+    background-image: url('../images/warty-final-ubuntu.png');
+    background-position: 50% 50%;
+    background-repeat:no-repeat;  
+    background-attachment:fixed;
 }
 
 body {
