@@ -97,7 +97,11 @@ $doc->addStyleSheet('http://fonts.googleapis.com/css?family=Ubuntu');
 				    </ul>
 				<?php endif; ?>
 
-				<h1 id="logo"><a href="<?php echo $this->baseurl ?>/" title="<?php echo $app->getCfg('sitename');?>">joomla@nyc2011:~$ Lynx</a></h1>
+				<h1 id="logo"><a href="<?php echo $this->baseurl ?>/" title="<?php echo $app->getCfg('sitename');?>">joomla@nyc2011: /</a></h1>
+				
+				<?php if ($this->countModules('breadcrumbs')) : ?>		
+					<jdoc:include type="module" name="breadcrumbs" />			
+				<?php endif; ?>	
 				
 				<?php if ($this->countModules('header')) : ?>
 					<jdoc:include type="modules" name="header" style="jexhtml" />	
@@ -154,11 +158,7 @@ $doc->addStyleSheet('http://fonts.googleapis.com/css?family=Ubuntu');
 						</div><!-- end header-below-6 -->
 					<?php endif; ?>											
 				</div><!-- end header-below -->
-			<?php endif; ?>
-		
-			<?php if ($this->countModules('breadcrumbs')) : ?>		
-				<jdoc:include type="module" name="breadcrumbs" />			
-			<?php endif; ?>		
+			<?php endif; ?>	
 			
 			<?php if ($this->countModules('nav')) : ?>
 				<div id="nav" class="clear clearfix">

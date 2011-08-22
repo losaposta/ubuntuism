@@ -50,11 +50,17 @@ a, a:link, a:visited, a:focus, a:active {
 
 #logo a:link,
 #logo a:visited,
-#logo a:hover {
+#logo a:hover,
+.breadcrumbs a {
     background:none;
     width:auto;
     height:auto;
     text-indent:0;    
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Ubuntu', sans-serif;    
     color:#fff;
+}
+
+#logo a,
+.breadcrumbs a {
+    font-size:14px;
 }
