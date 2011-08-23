@@ -6,7 +6,13 @@
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
+// Ubuntu Google Font
 $doc->addStyleSheet('http://fonts.googleapis.com/css?family=Ubuntu');
+
+// 
+$doc->addCustomTag('<link rel="alternate stylesheet" href="'.$template.'/css/close.css" type="text/css" media="screen" title="close" />');
+$doc->addCustomTag('<link rel="alternate stylesheet" href="'.$template.'/css/minimize.css" type="text/css" media="screen" title="minimize" />');
+$doc->addScript($template.'/js/styleswitch.js');
 
 ?>
 
@@ -96,7 +102,13 @@ $doc->addStyleSheet('http://fonts.googleapis.com/css?family=Ubuntu');
 							  } ?>
 				    </ul>
 				<?php endif; ?>
-
+								
+				<ul id="style-switch">
+					<li class="close"><a href="#" onclick="setActiveStyleSheet('close'); return false;" title="close">x</a></li>
+					<li class="minimize"><a href="#" onclick="setActiveStyleSheet('minimize'); return false;" title="minimize">&#95;</a></li>
+					<li class="restore"><a href="#" onclick="setActiveStyleSheet('restore'); return false;" title="restore">&#91;&#93;</a></li>
+				</ul>
+				
 				<h1 id="logo"><a href="<?php echo $this->baseurl ?>/" title="<?php echo $app->getCfg('sitename');?>">joomla@nyc2011: /</a></h1>
 				
 				<?php if ($this->countModules('breadcrumbs')) : ?>		
@@ -106,14 +118,6 @@ $doc->addStyleSheet('http://fonts.googleapis.com/css?family=Ubuntu');
 				<?php if ($this->countModules('header')) : ?>
 					<jdoc:include type="modules" name="header" style="jexhtml" />	
 				<?php endif; ?>
-				
-				<?php if ($enableSwitcher) : ?>
-					<ul id="style-switch">
-						<li><a href="#" onclick="setActiveStyleSheet('wireframe'); return false;" title="Wireframe">Wireframe</a></li>
-						<li><a href="#" onclick="setActiveStyleSheet('diagnostic'); return false;" title="Diagnostic">Diagnostic Mode</a></li>
-						<li><a href="#" onclick="setActiveStyleSheet('normal'); return false;" title="Normal">Normal Mode</a></li>
-					</ul>
-				<?php endif; ?>	
 
 			</div><!--end gutter -->
 		</div><!-- end header-->
