@@ -59,6 +59,12 @@ a, a:link, a:visited, a:focus, a:active {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#666666', EndColorStr='#333333');     
 }
 
+#header .gutter {
+    border-bottom:1px solid #333;
+    padding:0 0 6px 0;
+    margin-bottom:5px;
+}
+
 #logo a:link,
 #logo a:visited,
 #logo a:hover,
@@ -104,7 +110,8 @@ a, a:link, a:visited, a:focus, a:active {
 #style-switch a {
     color:#333;
     display:block;
-    line-height:1em;    
+    line-height:1em;
+    text-shadow: 0px 0px 1px #666;    
 }
 
 #style-switch .close {
@@ -112,15 +119,13 @@ a, a:link, a:visited, a:focus, a:active {
 }
 
 #style-switch .close a {
-    padding: 1px 0 0 5px;
-    text-shadow: 0px 0px 1px #666;
+    padding: 1px 0 0 5px;    
 }
 
 #style-switch .minimize,
 #style-switch .restore {
     background: -webkit-gradient(linear, left top, left bottom, from(#333333), to(#888888));
-    background: -moz-linear-gradient(top, #333333, #888888);
-    text-shadow: 1px 1px 1px #888888;
+    background: -moz-linear-gradient(top, #333333, #888888);    
 }
 
 #style-switch .minimize a {
@@ -132,4 +137,15 @@ a, a:link, a:visited, a:focus, a:active {
 #style-switch .restore a {
     padding: 1px 0 0 5px;
     font-size:.8em
+}
+
+#style-switch li:hover {    
+  background-color: #999999;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#999999), to(#666666)); 
+  background-image: -webkit-linear-gradient(top, #999999, #666666); 
+  background-image:    -moz-linear-gradient(top, #999999, #666666); 
+  background-image:     -ms-linear-gradient(top, #999999, #666666); 
+  background-image:      -o-linear-gradient(top, #999999, #666666); 
+  background-image:         linear-gradient(top, #999999, #666666);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#999999', EndColorStr='#666666'); 
 }

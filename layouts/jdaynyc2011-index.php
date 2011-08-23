@@ -109,7 +109,7 @@ $doc->addScript($template.'/js/styleswitch.js');
 					<li class="restore"><a href="#" onclick="setActiveStyleSheet('restore'); return false;" title="restore">&#91;&#93;</a></li>
 				</ul>
 				
-				<h1 id="logo"><a href="<?php echo $this->baseurl ?>/" title="<?php echo $app->getCfg('sitename');?>">joomla@nyc2011: /</a></h1>
+				<h1 id="logo"><a href="<?php echo $this->baseurl ?>/" title="<?php echo $app->getCfg('sitename');?>">joomla@nyc2011: /&nbsp;</a></h1>
 				
 				<?php if ($this->countModules('breadcrumbs')) : ?>		
 					<jdoc:include type="module" name="breadcrumbs" />			
