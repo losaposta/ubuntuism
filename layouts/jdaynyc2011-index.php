@@ -118,6 +118,12 @@ $doc->addScript($template.'/js/styleswitch.js');
 				<?php if ($this->countModules('header')) : ?>
 					<jdoc:include type="modules" name="header" style="jexhtml" />	
 				<?php endif; ?>
+				
+			    <?php if ($this->countModules('nav')) : ?>
+				    <div id="nav" class="clear clearfix">
+					    <jdoc:include type="modules" name="nav" style="raw" />
+				    </div><!-- end nav-->
+			    <?php endif; ?>				
 
 			</div><!--end gutter -->
 		</div><!-- end header-->
@@ -162,12 +168,6 @@ $doc->addScript($template.'/js/styleswitch.js');
 						</div><!-- end header-below-6 -->
 					<?php endif; ?>											
 				</div><!-- end header-below -->
-			<?php endif; ?>	
-			
-			<?php if ($this->countModules('nav')) : ?>
-				<div id="nav" class="clear clearfix">
-					<jdoc:include type="modules" name="nav" style="raw" />
-				</div><!-- end nav-->
 			<?php endif; ?>
 	  
 			<div id="content-container" class="clear clearfix">    
