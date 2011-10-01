@@ -1,0 +1,30 @@
+#intro {
+	margin: 0;
+	padding: 0;
+	border:0;
+}
+
+#intro h1 {
+	width: 60%;
+	min-height: 500px;
+	margin: 5% auto 0;
+	font-size: 2em;
+	line-height: 1;
+	text-align: center;	
+}
+
+#intro section{
+	font-weight: bold;
+	text-align: center;
+	font-size: 1em;
+	line-height: 3em;
+	color: rgba(221, 72, 20,.6);
+	text-shadow: none;
+	padding:.6em 0 0;
+	overflow: hidden;
+	background:url(img/HTML5_Logo_128.png) 100% 100% no-repeat;
+}
+
+#css-controls-demo label {
+	display: block;
+}
