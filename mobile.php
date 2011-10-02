@@ -1,6 +1,6 @@
 <?php defined('_JEXEC') or die;
 /**
-* @package		Template Framework for Joomla! 1.6+
+* @package		Unified Template Framework for Joomla! 1.5, 1.6+
 * @author		Joomla Engineering http://joomlaengineering.com
 * @copyright	Copyright (C) 2010, 2011 Matt Thomas | Joomla Engineering. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
@@ -16,7 +16,7 @@ $mobileResults = $mobileLayoutOverride->getIncludeFile ();
 
 if ($mobileResults) {
     $alternateIndexFile = $mobileResults;
-	include_once $alternateIndexFile;	
+	include_once $alternateIndexFile;
 } else {
 ?>
 
@@ -25,14 +25,14 @@ if ($mobileResults) {
 	<head>
 		<meta http-equiv="Content-Type" content="<?php echo $contenttype; ?>; charset=utf-8" />
 		<link rel="stylesheet" href="<?php echo $baseUrl.'templates/'.$this->template; ?>/css/mobile.css" type="text/css" media="screen" />
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.css" />
 		<?php //Load Mobile Extended Template Style Overrides
 		$mobileCssFile = $mobileStyleOverride->getIncludeFile ();		
 		if ($mobileCssFile) : ?>
 			<link rel="stylesheet" href="<?php echo $baseUrl.$mobileCssFile; ?>" type="text/css" media="screen" />			
 		<?php endif; ?>		
-		<script src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js"></script>
 		<script>
 			(function($) { //enable using $ along side of other libraries
 				$(document).ready(function() {
@@ -45,15 +45,19 @@ if ($mobileResults) {
 <body class="noscript">	
 	<div data-role="page" data-theme="<?php echo $mPageDataTheme; ?>">
 		<div id="header" data-role="header" data-theme="<?php echo $mHeaderDataTheme; ?>">
+			
 			<h1><a href="<?php echo $baseUrl; ?>/" title="<?php echo $app->getCfg('sitename'); ?>"><?php echo $app->getCfg('sitename'); ?></a></h1>
+			
 			<?php if ($showDiagnostics) : ?>
 				<ul id="diagnostics">
+				    <li>column layout <?php echo $columnLayout; ?></li>
 					<li>component <?php echo $currentComponent; ?></li>					
-					<?php if($view)			echo '<li>'.$view.' view</li>'; ?>						
-					<?php if($articleId)	echo '<li>article '.$articleId.'</li>'; ?>
-					<?php if($itemId)		echo '<li>menu item '.$itemId.'</li>'; ?>
-				    <?php if($catId) {
-				    		echo '<li>category '.$catId.'</li>'; 
+				    <?php if($view)			echo '<li>'.$view.' view</li>'; ?>						
+				    <?php if($articleId)	echo '<li>article '.$articleId.'</li>'; ?>
+				    <?php if($itemId)		echo '<li>menu item '.$itemId.'</li>'; ?>
+				    <?php if($sectionId) 	echo '<li>section '.$sectionId.'</li>'; ?>
+				    <?php if($catId)   		echo '<li>category '.$catId.'</li>'; ?>
+				    <?php if ($catId && ($inheritStyle || $inheritLayout)) {
 				    		if ($parentCategory) {
 				    		    echo '<li>parent category '.$parentCategory.'</li>';
 				    		}
@@ -68,8 +72,8 @@ if ($mobileResults) {
 						        echo'</li>';
 						    }
 						  } ?>
-				</ul>
-			<?php endif; ?>			
+			    </ul>
+			<?php endif; ?>		
 		</div>
 	
 		<?php if ( $mNavPosition && ($this->countModules('nav'))) : ?>

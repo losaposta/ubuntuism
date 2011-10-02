@@ -38,8 +38,12 @@ elseif (JFile::exists($template.'/layouts/offline.php')) {
 }
 else {
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" >
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
 <jdoc:include type="head" />
 </head>
@@ -83,7 +87,7 @@ else {
 			</div><!-- end header-above -->
 		<?php endif; ?>	
 	
-		<div id="header" class="clear clearfix">
+		<header id="header" class="clear clearfix">
 			<div class="gutter clearfix">
 
 				<div class="date-container">
@@ -94,59 +98,62 @@ else {
 				</div>
 				
 				<?php if ($showDiagnostics) : ?>
-					<ul id="diagnostics">
-					    <li>column layout <?php echo $columnLayout; ?></li>
-						<li>component <?php echo $currentComponent; ?></li>					
-					    <?php if($view)			echo '<li>'.$view.' view</li>'; ?>						
-					    <?php if($articleId)	echo '<li>article '.$articleId.'</li>'; ?>
-					    <?php if($itemId)		echo '<li>menu item '.$itemId.'</li>'; ?>
-					    <?php if($catId) {
-					    		echo '<li>category '.$catId.'</li>'; 
-					    		if ($parentCategory) {
-					    		    echo '<li>parent category '.$parentCategory.'</li>';
-					    		}
-					    		$results = getAncestorCategories($catId);
-							    if ($results) {
-							        echo '<li>ancestor categories';
-								        if (count($results) > 0) {
-									        foreach ($results as $item) {
-										        echo ' '.$item->id.' ';
-									        }			
-								        }								
-							        echo'</li>';
-							    }
-							  } ?>
-				    </ul>
-				<?php endif; ?>
+				<ul id="diagnostics">
+					<li>column layout <?php echo $columnLayout; ?></li>
+					<li>component <?php echo $currentComponent; ?></li>					
+					<?php if($view)			echo '<li>'.$view.' view</li>'; ?>						
+					<?php if($articleId)	echo '<li>article '.$articleId.'</li>'; ?>
+					<?php if($itemId)		echo '<li>menu item '.$itemId.'</li>'; ?>
+					<?php if($sectionId) 	echo '<li>section '.$sectionId.'</li>'; ?>
+					<?php if($catId)   		echo '<li>category '.$catId.'</li>'; ?>
+					<?php if ($catId && ($inheritStyle || $inheritLayout)) {
+							if ($parentCategory) {
+								echo '<li>parent category '.$parentCategory.'</li>';
+							}
+							$results = getAncestorCategories($catId);
+							if ($results) {
+								echo '<li>ancestor categories';
+									if (count($results) > 0) {
+										foreach ($results as $item) {
+											echo ' '.$item->id.' ';
+										}			
+									}								
+								echo'</li>';
+							}
+						  } ?>
+				</ul>
+				<?php endif; ?>	
 				
 				<h1 id="logo"><a href="<?php echo $this->baseurl ?>/" title="<?php echo $app->getCfg('sitename');?>"><?php echo $app->getCfg('sitename');?></a></h1>
 				
 				<?php if ($this->countModules('header')) : ?>
 					<jdoc:include type="modules" name="header" style="jexhtml" />	
 				<?php endif; ?>						
-										
-				<ul id="access">
-					<li>Jump to:</li>
-					<li><a href="<?php $url->setFragment('content'); echo $url->toString();?>" class="to-content">Content</a></li>					
-					<?php if ($this->countModules('nav')) : ?>
-						<li><a href="<?php $url->setFragment('nav'); echo $url->toString();?>" class="to-nav">Navigation</a></li>
-					<?php endif; ?>					
-					<?php if ($contentBelowCount) : ?>
-						<li><a href="<?php $url->setFragment('additional'); echo $url->toString();?>" class="to-additional">Additional Information</a></li>
-					<?php endif; ?>
-				</ul>				
+				
+				<nav>						
+					<ul id="access">
+						<li>Jump to:</li>
+						<li><a href="<?php $url->setFragment('content'); echo $url->toString();?>" class="to-content">Content</a></li>					
+						<?php if ($this->countModules('nav')) : ?>
+							<li><a href="<?php $url->setFragment('nav'); echo $url->toString();?>" class="to-nav">Navigation</a></li>
+						<?php endif; ?>					
+						<?php if ($contentBelowCount) : ?>
+							<li><a href="<?php $url->setFragment('additional'); echo $url->toString();?>" class="to-additional">Additional Information</a></li>
+						<?php endif; ?>
+					</ul>
+				</nav>
 				
 				<?php if ($enableSwitcher) : ?>
-					<ul id="style-switch">
-						<li class="narrow"><a href="#" onclick="setActiveStyleSheet('diagnostic'); return false;" title="Diagnostic">Diagnostic Mode</a></li>
-						<li class="wide"><a href="#" onclick="setActiveStyleSheet('normal'); return false;" title="Normal">Normal Mode</a></li>
-					</ul>
+				<ul id="style-switch">
+					<li class="narrow"><a href="#" onclick="setActiveStyleSheet('diagnostic'); return false;" title="Diagnostic">Diagnostic Mode</a></li>
+					<li class="wide"><a href="#" onclick="setActiveStyleSheet('normal'); return false;" title="Normal">Normal Mode</a></li>
+				</ul>
 				<?php endif; ?>	
 
 			</div><!--end gutter -->
-		</div><!-- end header-->
+		</header><!-- end header-->
 		   
-		<div id="body-container">
+		<section id="body-container">
 
 			<?php if ($headerBelowCount) : ?>
 				<div id="header-below" class="clearfix">						
@@ -271,36 +278,78 @@ else {
 								</div><!-- end content-above -->
 							<?php endif; ?>
 							
-							<div id="offline">
+							<?php if (substr(JVERSION, 0, 3) >= '1.6') { ?>
+							
+							    <div id="offline">
+								    <?php if ($this->countModules('offline')) : ?>								
+										    <jdoc:include type="modules" name="offline" style="jexhtml" />								
+								    <?php endif; ?>	
+					      
+								    <?php if ($this->getBuffer('message')) : ?>
+									    <jdoc:include type="message" />
+								    <?php endif; ?>							
+
+								    <h3><?php echo $app->getCfg('offline_message'); ?></h3>
+	
+								    <form action="<?php echo JRoute::_('index.php', true); ?>" method="post" id="form-login">
+								    <fieldset class="input">									
+									    <label id="form-login-username" for="username"><?php echo JText::_('JGLOBAL_USERNAME') ?>
+										    <input name="username" id="username" type="text" class="inputbox" alt="<?php echo JText::_('JGLOBAL_USERNAME') ?>" size="18" />
+									    </label>			
+									    <label id="form-login-password" for="passwd"><?php echo JText::_('JGLOBAL_PASSWORD') ?>
+										    <input type="password" name="password" class="inputbox" size="18" alt="<?php echo JText::_('JGLOBAL_PASSWORD') ?>" id="passwd" />
+									    </label>									
+									    <label id="form-login-remember" for="remember"><?php echo JText::_('JGLOBAL_REMEMBER_ME') ?>
+										    <input type="checkbox" name="remember" class="inputbox" value="yes" alt="<?php echo JText::_('JGLOBAL_REMEMBER_ME') ?>" id="remember" />
+									    </label>
+									    <input type="submit" name="Submit" class="button" value="<?php echo JText::_('JLOGIN') ?>" />
+									    <input type="hidden" name="option" value="com_users" />
+									    <input type="hidden" name="task" value="user.login" />
+									    <input type="hidden" name="return" value="<?php echo base64_encode(JURI::base()) ?>" />
+									    <?php echo JHtml::_('form.token'); ?>
+								    </fieldset>
+								    </form>
+							    </div>
+							
+							<?php
+							}
+                            else { 
+                            ?>
+                            
+                                <div id="offline">
 								<?php if ($this->countModules('offline')) : ?>								
 										<jdoc:include type="modules" name="offline" style="jexhtml" />								
 								<?php endif; ?>	
 					  
 								<?php if ($this->getBuffer('message')) : ?>
 									<jdoc:include type="message" />
-								<?php endif; ?>							
-
+								<?php endif; ?>	
+																
 								<h3><?php echo $app->getCfg('offline_message'); ?></h3>
-	
-								<form action="<?php echo JRoute::_('index.php', true); ?>" method="post" id="form-login">
-								<fieldset class="input">									
-									<label id="form-login-username" for="username"><?php echo JText::_('JGLOBAL_USERNAME') ?>
-										<input name="username" id="username" type="text" class="inputbox" alt="<?php echo JText::_('JGLOBAL_USERNAME') ?>" size="18" />
-									</label>			
-									<label id="form-login-password" for="passwd"><?php echo JText::_('JGLOBAL_PASSWORD') ?>
-										<input type="password" name="password" class="inputbox" size="18" alt="<?php echo JText::_('JGLOBAL_PASSWORD') ?>" id="passwd" />
-									</label>									
-									<label id="form-login-remember" for="remember"><?php echo JText::_('JGLOBAL_REMEMBER_ME') ?>
-										<input type="checkbox" name="remember" class="inputbox" value="yes" alt="<?php echo JText::_('JGLOBAL_REMEMBER_ME') ?>" id="remember" />
-									</label>
-									<input type="submit" name="Submit" class="button" value="<?php echo JText::_('JLOGIN') ?>" />
-									<input type="hidden" name="option" value="com_users" />
-									<input type="hidden" name="task" value="user.login" />
-									<input type="hidden" name="return" value="<?php echo base64_encode(JURI::base()) ?>" />
-									<?php echo JHtml::_('form.token'); ?>
-								</fieldset>
-								</form>
-							</div>
+								<?php if(JPluginHelper::isEnabled('authentication', 'openid')) : ?>
+								<?php JHTML::_('script', 'openid.js'); ?>
+								<?php endif; ?>
+									<form action="index.php" method="post" name="login" id="form-login">
+										<fieldset class="input">								
+											<label id="form-login-username" for="username"><?php echo JText::_('Username') ?>
+												<input name="username" id="username" type="text" class="inputbox" alt="<?php echo JText::_('Username') ?>" size="18" />
+											</label>
+											<label id="form-login-password" for="passwd"><?php echo JText::_('Password') ?>
+												<input type="password" name="passwd" class="inputbox" size="18" alt="<?php echo JText::_('Password') ?>" id="passwd" />
+											</label>
+											<label id="form-login-remember" for="remember"><?php echo JText::_('Remember me') ?>
+												<input type="checkbox" name="remember" class="inputbox" value="yes" alt="<?php echo JText::_('Remember me') ?>" id="remember" />
+											</label>
+											<input type="submit" name="Submit" class="button" value="<?php echo JText::_('LOGIN') ?>" />
+										</fieldset>
+										<input type="hidden" name="option" value="com_user" />
+										<input type="hidden" name="task" value="login" />
+										<input type="hidden" name="return" value="<?php echo base64_encode(JURI::base()) ?>" />
+										<?php echo JHTML::_( 'form.token' ); ?>
+									</form>
+								</div><!--end offline-->
+							
+							<?php } ?>
 	
 							<?php if ($contentBelowCount) : ?>
 								<div id="content-below" class="clearfix">						
@@ -418,10 +467,10 @@ else {
 				<?php endif; ?>
 
 			</div><!-- end content-container -->
-		</div><!-- end body-container -->
+		</section><!-- end body-container -->
 	</div><!-- end footer-push -->
     
-	<div id="footer" class="clear clearfix">
+	<footer id="footer" class="clear clearfix">
 		<div class="gutter clearfix">			
 			
 			<a id="to-page-top" href="<?php $url->setFragment('page-top'); echo $url->toString();?>" class="to-additional">Back to Top</a>
@@ -437,7 +486,7 @@ else {
 			<?php endif; ?>
 
 		</div><!--end gutter -->
-	</div><!-- end footer -->
+	</footer><!-- end footer -->
 
 	<?php if ($this->countModules('debug')) : ?>
 		<jdoc:include type="modules" name="debug" style="raw" />

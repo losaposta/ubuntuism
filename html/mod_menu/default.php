@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') or die;
 /**
  * @version		$Id: default.php 20196 2011-01-09 02:40:25Z ian $
  * @package		Joomla.Site
@@ -7,8 +7,7 @@
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-// No direct access.
-defined('_JEXEC') or die;
+// Joomla 1.6+ only
 
 //enable accessing template parameters
 $templateParams = JFactory::getApplication()->getTemplate(true)->params; 
@@ -16,7 +15,7 @@ $templateParams = JFactory::getApplication()->getTemplate(true)->params;
 // Note. It is important to remove spaces between elements.
 ?>
 
-<ul data-role="listview" data-inset="true" data-theme="<?php echo $templateParams->get('mNavDataTheme'); ?>" class="menu<?php echo $class_sfx;?>"<?php
+<ul data-role="listview" data-inset="true" data-theme="<?php echo $templateParams->get('mNavDataTheme'); ?>" class="menu<?php echo $class_sfx;?> clearfix"<?php
 	$tag = '';
 	if ($params->get('tag_id')!=NULL) {
 		$tag = $params->get('tag_id').'';

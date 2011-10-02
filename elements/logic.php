@@ -1,6 +1,6 @@
 <?php defined('_JEXEC') or die;
 /**
-* @package		Template Framework for Joomla! 1.6+
+* @package		Unified Template Framework for Joomla!
 * @author		Joomla Engineering http://joomlaengineering.com
 * @copyright	Copyright (C) 2010, 2011 Matt Thomas | Joomla Engineering. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
@@ -17,7 +17,11 @@ $app 					= JFactory::getApplication();
 $baseUrl 				= JURI::base();
 // Returns a reference to the global document object
 $doc 					= JFactory::getDocument();
-// Define relative shortcut for current template directory
+// Is version 1.6 and later
+$isOnward = (substr(JVERSION, 0, 3) >= '1.6');
+// Is version 1.5
+$isPresent = (substr(JVERSION, 0, 3) == '1.5');
+// Define relative path to the  current template directory
 $template 				= 'templates/'.$this->template;
 // Define absolute path to the template directory
 $templateDir			= JPATH_THEMES.'/'.$this->template;
@@ -76,11 +80,16 @@ $alternatemTemplate		= JPATH_THEMES.'/'.$this->template.'/layouts/mobile.php';
 $this->setGenerator($setGeneratorTag);
 
 // Enable Mootols
-if ( $loadMoo ) {
+if ( $isOnward && $loadMoo ) {
 	JHTML::_('behavior.framework', true);
 }
 
-// Enable modal pop-ups - see html/mod_footer/default.php to customize
+// Behavior.mootools is depreciated and may be removed after 1.6
+if ( $isPresent && $loadMoo ) {	
+	JHTML::_('behavior.mootools');
+}
+
+// Enable modal pop-ups
 if ( $loadMoo && $loadModal ) {	
 	JHTML::_('behavior.modal');
 }
@@ -96,7 +105,7 @@ if ( !$loadMoo ) {
 	$this->setHeadData($head);
 }
 
-// Fix Google Web Font name for CSS
+// Change Google Web Font name for CSS
 $googleWebFontFamily 	= str_replace(array('+',':bold',':italic')," ",$googleWebFont);
 $googleWebFontFamily2 	= str_replace(array('+',':bold',':italic')," ",$googleWebFont2);
 $googleWebFontFamily3 	= str_replace(array('+',':bold',':italic')," ",$googleWebFont3);
@@ -218,14 +227,42 @@ if ($view == 'article')
 $articleId = JRequest::getInt('id');
 else ($articleId = NULL);
 
+#------------------------------- Section ID -------------------------------#
+
+function getSection($id) {
+	  $database = JFactory::getDBO();
+	  if ((substr(JVERSION, 0, 3) >= '1.6')) {
+		  return NULL;
+		}
+	  elseif(JRequest::getCmd('view', 0) == "section") {
+			return $id;
+		}
+	  elseif(JRequest::getCmd('view', 0) == "category") {
+			$sql = "SELECT section FROM #__categories WHERE id = $id ";
+			$database->setQuery( $sql );
+			return $database->loadResult();
+		}
+	  elseif(JRequest::getCmd('view', 0) == "article") {
+			$temp = explode(":",$id);
+			$sql = "SELECT sectionid FROM #__content WHERE id = ".$temp[0];
+			$database->setQuery( $sql );
+			return $database->loadResult();
+		}		
+	}
+	
+$sectionId = getSection(JRequest::getInt('id'));
+
 #------------------------------ Category ID -------------------------------#
 
 function getCategory($id) {
 	$database = JFactory::getDBO();
-		if((JRequest::getCmd('view', 0) == "category") || (JRequest::getCmd('view', 0) == "categories")) {
+	  if(JRequest::getCmd('view', 0) == "section") {
+			return null;
+		}
+	  elseif((JRequest::getCmd('view', 0) == "category") || (JRequest::getCmd('view', 0) == "categories")) {
 			return $id;
 		}		
-		elseif(JRequest::getCmd('view', 0) == "article") {
+	  elseif(JRequest::getCmd('view', 0) == "article") {
 			$temp = explode(":",$id);
 			$sql = "SELECT catid FROM #__content WHERE id = ".$temp[0];
 			$database->setQuery( $sql );
@@ -289,7 +326,7 @@ $styleOverride->includeFile[] 				= $template.'/css/item/'.$overrideTheme.'-item
 $styleOverride->includeFile[] 				= $template.'/css/item/item-'.$itemId.'.css';
 $styleOverride->includeFile[] 				= $template.'/css/category/'.$overrideTheme.'-category-'.$catId.'.css';
 $styleOverride->includeFile[] 				= $template.'/css/category/category-'.$catId.'.css';
-if ($catId && $inheritStyle) {
+if ($isOnward && $catId && $inheritStyle) {
 	$styleOverride->includeFile[] 			= $template.'/css/category/category-'.$parentCategory.'.css';	
 
 	$results 								= getAncestorCategories($catId);
@@ -305,6 +342,9 @@ if ($view == 'category') {
 if ($view == 'categories') {
 	$styleOverride->includeFile[]			= $template.'/css/category/categories.css';
 }
+$styleOverride->includeFile[] 				= $template.'/css/section/'.$overrideTheme.'-section-'.$sectionId.'.css';
+$styleOverride->includeFile[] 				= $template.'/css/section/section-'.$sectionId.'.css';
+$styleOverride->includeFile[] 				= $template.'/css/section/section.css';
 $styleOverride->includeFile[] 				= $template.'/css/component/'.$currentComponent.'.css';
 $styleOverride->includeFile[] 				= $template.'/css/component/'.$overrideTheme.'-'.$currentComponent.'.css';
 
@@ -317,6 +357,7 @@ $mobileStyleOverride->includeFile 			= array ();
 $mobileStyleOverride->includeFile[]			= $template.'/css/article/article-'.$articleId.'-mobile.css';
 $mobileStyleOverride->includeFile[]			= $template.'/css/item/item-'.$itemId.'-mobile.css';
 $mobileStyleOverride->includeFile[]			= $template.'/css/category/category-'.$catId.'-mobile.css';
+$mobileStyleOverride->includeFile[]			= $template.'/css/section/section-'.$sectionId.'-mobile.css';
 $mobileStyleOverride->includeFile[]			= $template.'/css/component/'.$currentComponent.'-mobile.css';
 
 #-------------------Extended Template Layout Overrides-----------------------#
@@ -332,7 +373,7 @@ $layoutOverride->includeFile[] 				= $template.'/layouts/item/'.$overrideTheme.'
 $layoutOverride->includeFile[] 				= $template.'/layouts/item/item-'.$itemId.'.php';	
 $layoutOverride->includeFile[] 				= $template.'/layouts/category/'.$overrideTheme.'-category-'.$catId.'.php';	
 $layoutOverride->includeFile[] 				= $template.'/layouts/category/category-'.$catId.'.php';
-if ($catId && $inheritLayout) {
+if ($isOnward && $catId && $inheritLayout) {
 	$layoutOverride->includeFile[] 			= $template.'/layouts/category/category-'.$parentCategory.'.php';	
 
 	$results 								= getAncestorCategories($catId);
@@ -348,6 +389,9 @@ if ($view == 'category') {
 if ($view == 'categories') {
 	$layoutOverride->includeFile[]			= $template.'/layouts/category/categories.php';
 }
+$layoutOverride->includeFile[] 				= $template.'/layouts/section/'.$overrideTheme.'-section-'.$sectionId.'.php';	
+$layoutOverride->includeFile[] 				= $template.'/layouts/section/section-'.$sectionId.'.php';	
+$layoutOverride->includeFile[] 				= $template.'/layouts/section/section.php';	
 $layoutOverride->includeFile[] 				= $template.'/layouts/component/'.$overrideTheme.'-'.$currentComponent.'.php';	
 $layoutOverride->includeFile[] 				= $template.'/layouts/component/'.$currentComponent.'.php';	
 $layoutOverride->includeFile[] 				= $template.'/layouts/'.$overrideTheme.'-index.php';
@@ -370,10 +414,17 @@ $mobileLayoutOverride->includeFile[]		= $template.'/layouts/mobile.php';
 #---------------------------- Head Elements --------------------------------#
 
 // Custom tags
+
+// Always force latest IE rendering engine (even in intranet) & Chrome Frame
+$doc->addCustomTag('<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">');
+// Mobile viewport optimized: j.mp/bplateviewport
+$doc->addCustomTag(' <meta name="viewport" content="width=device-width, initial-scale=1.0">');
+
 $doc->addCustomTag('<meta name="copyright" content="'.$app->getCfg('sitename').'" />');
 
-// Transparent favicon
-$doc->addFavicon($template.'/favicon.png','image/png','icon');
+// Site icons
+$doc->addFavicon($template.'/favicon.png','image/png','shortcut icon');
+$doc->addFavicon($template.'/apple-touch-icon.png','image/png','apple-touch-icon');
 
 // Style sheets
 $doc->addStyleSheet($template.'/css/screen.css','text/css','screen');
@@ -412,6 +463,10 @@ if ($googleWebFont3) {
 }
 
 // JavaScript
+
+//Quick port of Modernizer's method of replacing "no-js" HTML class with "js" - NOTE: removes all other classes added to HTML element
+$doc->addCustomTag("\n".'  <script type="text/javascript">docElement = document.documentElement;docElement.className = docElement.className.replace(/\bno-js\b/, \'js\');</script>');
+
 $doc->addCustomTag("\n".'  <script type="text/javascript">window.addEvent(\'domready\',function(){new SmoothScroll({duration:1200},window);});</script>');
 if ($loadjQuery) {
 	$doc->addScript($loadjQuery);
@@ -419,43 +474,45 @@ if ($loadjQuery) {
 
 // Layout Declarations
 if ($siteWidth) {
-	$doc->addStyleDeclaration("\n".'  #body-container, #header-above {'.$siteWidthType.':'.$siteWidth.$siteWidthUnit.'}');
+	$doc->addStyleDeclaration("\n".'  #body-container, #header-above {'.$siteWidthType.':'.$siteWidth.$siteWidthUnit.';}');
 }
 if (($siteWidthType == 'max-width') && $fluidMedia ) {
-	$doc->addStyleDeclaration("\n".'  img, object {max-width:100%}');
+	$doc->addStyleDeclaration("\n".'  img, object {max-width:100%;}');
 }
 if (!$fullWidth) {
-	$doc->addStyleDeclaration("\n".'  #header, #footer {'.$siteWidthType.':'.$siteWidth.$siteWidthUnit.'; margin:0 auto}');
-}
-
-// Internet Explorer Fixes	
-if ($IECSS3) {
-  $doc->addCustomTag("\n".'  <!--[if !IE 9]>
-  <style type="text/css">'.$IECSS3Targets.' {behavior:url("'.$baseUrl.'templates/'.$this->template.'/js/PIE.htc")}</style>
-  <![endif]-->');
+	$doc->addStyleDeclaration("\n".'  #header, #footer {'.$siteWidthType.':'.$siteWidth.$siteWidthUnit.'; margin:0 auto;}');
 }
 if ($useStickyFooter) {
-	$doc->addStyleDeclaration("\n".'  .sticky-footer #body-container {padding-bottom:'.$stickyFooterHeight.'px;}
-  .sticky-footer #footer {margin-top:-'.$stickyFooterHeight.'px;height:'.$stickyFooterHeight.'px;}');
-	$doc->addCustomTag("\n".'  <!--[if lt IE 7]>
-  <style type="text/css">body.sticky-footer #footer-push {display:table;height:100%}</style>
-  <![endif]-->');
+	$doc->addStyleDeclaration("\n".'  .sticky-footer #body-container {padding-bottom:'.$stickyFooterHeight.'px;}');
+	$doc->addStyleDeclaration("\n".'  .sticky-footer #footer {margin-top:-'.$stickyFooterHeight.'px;height:'.$stickyFooterHeight.'px;}');
 }
 
-$doc->addCustomTag('<!--[if lt IE 7]>
-  <link rel="stylesheet" href="'.$template.'/css/ie6.css" type="text/css" media="screen" />
-  <style type="text/css">
-  body {text-align:center}
-  #body-container {text-align:left}');  
-  if (!$fullWidth) {
-  $doc->addCustomTag('#body-container, #header-above, #header, #footer {width: expression( document.body.clientWidth >'.($siteWidth -1).' ? "'.$siteWidth.$siteWidthUnit.'" : "auto" );margin:0 auto}');
-  }
-  else {
-  $doc->addCustomTag('#body-container, #header-above {width: expression( document.body.clientWidth >'.($siteWidth -1).' ? "'.$siteWidth.$siteWidthUnit.'" : "auto" );margin:0 auto}');
-  }
-  $doc->addCustomTag('</style>');
-  if ($IE6TransFix) {
-  $doc->addCustomTag('  <script type="text/javascript" src="'.$template.'/js/DD_belatedPNG_0.0.8a-min.js"></script>
-  <script>DD_belatedPNG.fix(\''.$IE6TransFixTargets.'\');</script>');
-  }
-  $doc->addCustomTag('<![endif]-->');
+// Internet Explorer Fixes
+$doc->addCustomTag("\n".'  <!--[if lt IE 9]>');
+$doc->addCustomTag("\n".'  <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>');
+if ($IECSS3) {
+  $doc->addCustomTag("\n".'  <style type="text/css">'.$IECSS3Targets.' {behavior:url("'.$baseUrl.'templates/'.$this->template.'/js/PIE.htc")}</style>');
+}
+$doc->addCustomTag('<![endif]-->');
+
+// Internet Explorer 6 Fixes
+$doc->addCustomTag("\n".'  <!--[if lt IE 7]>');
+$doc->addCustomTag("\n".'  <link rel="stylesheet" href="'.$template.'/css/ie6.css" type="text/css" media="screen" />');
+$doc->addCustomTag("\n".'  <style type="text/css">');
+$doc->addCustomTag("\n".'  body {text-align:center;}');
+$doc->addCustomTag("\n".'  #body-container {text-align:left;}');	
+if ($useStickyFooter) {
+	$doc->addCustomTag("\n".'  body.sticky-footer #footer-push {display:table;height:100%;}');		
+}
+if(!$fullWidth){
+	$doc->addCustomTag("\n".'  #body-container, #header-above, #header, #footer {width: expression( document.body.clientWidth >'.($siteWidth -1).' ? "'.$siteWidth.$siteWidthUnit.'" : "auto" );margin:0 auto;}');
+}
+else {
+	$doc->addCustomTag("\n".'  #body-container, #header-above {width: expression( document.body.clientWidth >'.($siteWidth -1).' ? "'.$siteWidth.$siteWidthUnit.'" : "auto" );margin:0 auto;}');
+}
+$doc->addCustomTag("\n".'  </style>');
+if($IE6TransFix) {
+	$doc->addCustomTag("\n".'  <script type="text/javascript" src="'.$template.'/js/DD_belatedPNG_0.0.8a-min.js"></script>');
+	$doc->addCustomTag("\n".'  <script type="text/javascript">DD_belatedPNG.fix(\''.$IE6TransFixTargets.'\');</script>');
+}
+$doc->addCustomTag('<![endif]-->');
