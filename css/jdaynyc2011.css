@@ -28,7 +28,16 @@ a, a:link, a:visited, a:focus, a:active {
     color:#DD4814;
     text-decoration: none;
 }
-
+nav.breadcrumbs {
+	clear: none;
+}
+nav.breadcrumbs ol {
+	margin: 0;
+	padding: 0;
+}
+.category .cat-list-row0 {
+	background: rgba(119, 33, 111,.5)
+}
 .pagenav {
     list-style:none !important;
 }
@@ -61,8 +70,8 @@ a, a:link, a:visited, a:focus, a:active {
 }
 
 #header .gutter {    
-    padding:0;
-    margin-bottom:5px;
+    padding:.5em 0 0 .5em;
+    margin:0 1em .5em 0;
 }
 
 #logo a:link,
