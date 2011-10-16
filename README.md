@@ -28,3 +28,42 @@ template:
     	background-attachment:fixed;
 	}</pre>
 
+	b. Set the body width to 90.5em and give it some larger top and bottom margins:
+	<pre>body {
+    	max-width:90.5em;
+    	margin:50px auto;
+    }</pre>
+
+    c. Go ahead and add a dark aubergine background, with an opacity of .8
+    <pre>body {
+    	max-width:90.5em;
+    	margin:50px auto;
+    	background: rgba(44, 0, 30,.8);
+    }</pre>
+
+    d. Set the bod font to 'Ubuntu' (we'll add this font later), and set the font color to white
+    <pre>body {
+    	max-width:90.5em;
+    	margin:50px auto;
+    	background: rgba(44, 0, 30,.8);
+    	font-family: 'Ubuntu', sans-serif;
+    	color:#fff;
+    }</pre>
+
+	e. Give the body a border, some nice rounded corners and a drop shadow:
+	 <pre>body {
+    	max-width:90.5em;
+    	margin:50px auto;
+    	background: rgba(44, 0, 30,.8);
+    	font-family: 'Ubuntu', sans-serif;
+    	border:2px solid #333;
+    -	moz-border-radius: 12px 12px 0 0;
+		-webkit-border-radius: 12px 12px 0 0;
+		border-radius: 12px 12px 0 0;
+		-moz-background-clip: padding;
+		webkit-background-clip: padding-box;
+		background-clip: padding-box;
+		-moz-box-shadow: 0px 0px 36px #000;
+		-webkit-box-shadow:  0px 0px 36px #000;
+		box-shadow: 0px 0px 36px #000;
+	}</pre>
