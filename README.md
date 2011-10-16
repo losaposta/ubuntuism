@@ -151,16 +151,16 @@ template:
 10. While we are editing the layout of the template, let's remove the in-page links by deleting lines  113-124
 	<pre>
 	&lt;nav&gt;
-		<ul id="access">
-		  &lt;li&gt;Jump to:</li>
-		  &lt;li&gt;<a href="&lt;? php $url->setFragment('content'); echo $url->toString();?>" class="to-content">Content</a></li>
+		&lt;ul id="access"&gt;
+		  &lt;li&gt;Jump to:&lt;/li&gt;
+		  &lt;li&gt;<a href="&lt;? php $url->setFragment('content'); echo $url->toString();?>" class="to-content">Content</a>&lt;/li&gt;
 		  &lt;? php if ($this->countModules('nav')) : ?>
-			&lt;li&gt;<a href="&lt;? php $url->setFragment('nav'); echo $url->toString();?>" class="to-nav">Navigation</a></li>
+			&lt;li&gt;<a href="&lt;? php $url->setFragment('nav'); echo $url->toString();?>" class="to-nav">Navigation</a>&lt;/li&gt;
 		  &lt;? php endif; ?>
 		  &lt;? php if ($contentBelowCount) : ?>
 			&lt;li&gt;<a href="&lt;? php $url->setFragment('additional'); echo $url->toString();?>" class="to-additional">Additional Information</a></li>
 		  &lt;? php endif; ?>
-		</ul>
+		&lt;/ul&gt;
 	&lt;/nav&gt;</pre>
 
 11. We'll also move the main navigation to 
