@@ -116,15 +116,16 @@ template:
 		font-family: 'Ubuntu', sans-serif;
 		color:#fff;
 		font-weight:bold;
-	}
+	}</pre>
 
 	 Let's customize the color and behavior of the anchors tags
-	<pre>a, a:link, a:visited, a:focus, a:active {
-    color:#DD4814;
-    text-decoration: none;
+	<pre>
+	a, a:link, a:visited, a:focus, a:active {
+		color:#DD4814;
+		text-decoration: none;
 	}
 	a:hover {
-    text-decoration: underline;
+    	text-decoration: underline;
 	}</pre>
 
 	g. 
