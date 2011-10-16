@@ -9,4 +9,6 @@ The Construct Template Development Framework is a code based solution with the g
 For the workshop, we will recreating the Ubuntu 11.04 desktop as a Joomla template.
 
 1. Start with a clean installation of Joomla, preferably 1.7, with sample data.
-2. 
+2. <a href="https://github.com/betweenbrain/jdaynyc2011/zipball/master">Download</a> the master branch zip and
+install it as you would any extension.
+3. Set 
