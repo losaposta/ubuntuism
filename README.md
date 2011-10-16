@@ -118,7 +118,7 @@ template:
 		font-weight:bold;
 	}</pre>
 
-	 Let's customize the color and behavior of the anchors tags
+	i. Let's customize the color and behavior of the anchors tags
 	<pre>
 	a, a:link, a:visited, a:focus, a:active {
 		color:#DD4814;
@@ -128,4 +128,29 @@ template:
     	text-decoration: underline;
 	}</pre>
 
-	g. 
+7.We will now customize the look of the breadcrumbs, so let's first create a breadcrumbs module in Joomla, assign it to the "breadrumbs" position. Set Show "You are here" to No.
+
+8. As you can see, the breadcrumbs are not where we want them, so we will now override the default layout of the template. This is done by either editing the template's root index.php file or by creating an extended template override, something unique to Construct.
+	* Open the installation package and copy the <b>layouts/index.php</b> file to the <b>layouts</b> directory of your
+	template.
+	* We created the layout override capability to allow for you to be able to create custom layouts and to be able to later upgrade the template without loosing your customizations.
+
+9. Open this file ( layouts/index.php ) in your editor and cut/paste lines 175-177 to directly after the logo on line 103.
+	<pre><?php if ($this->countModules('breadcrumbs')) : ?>
+			<jdoc:include type="module" name="breadcrumbs" />
+		<?php endif; ?></pre>
+
+10. While we are editing the layout of the template, let's remove the in-page links by deleting lines  113-124
+	<pre>
+	<nav>
+		<ul id="access">
+		  <li>Jump to:</li>
+		  <li><a href="<?php $url->setFragment('content'); echo $url->toString();?>" class="to-content">Content</a></li>
+		  <?php if ($this->countModules('nav')) : ?>
+			<li><a href="<?php $url->setFragment('nav'); echo $url->toString();?>" class="to-nav">Navigation</a></li>
+		  <?php endif; ?>
+		  <?php if ($contentBelowCount) : ?>
+			<li><a href="<?php $url->setFragment('additional'); echo $url->toString();?>" class="to-additional">Additional Information</a></li>
+		  <?php endif; ?>
+		</ul>
+	</nav></pre>
