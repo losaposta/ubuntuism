@@ -19,7 +19,7 @@ created in the Custom Style Sheet drop-down and click save.
 6. Open the style sheet that you just created in your favorite editor and begin adding the custom styles for this
 template:
 
-    a. Set the background image (available within the images directory of the installer file that you downloaded,
+	a. Set the background image (available within the images directory of the installer file that you downloaded,
 	or at https://github.com/betweenbrain/jdaynyc2011/raw/master/images/wallpaper.jpg) :
 	<pre>html {
     	background-image: url('../images/wallpaper.jpg');
@@ -27,3 +27,4 @@ template:
     	background-repeat:no-repeat;
     	background-attachment:fixed;
 	}</pre>
+
