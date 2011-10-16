@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE install PUBLIC "-//Joomla! 1.6//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/1.6/template-install.dtd">
 <install version="1.6" type="template" client="site" method="upgrade">
-	<name>jdaynyc2011</name>
+	<name>ubuntuism</name>
 	<creationDate>September 27th, 2011</creationDate>
 	<author>Cristina Solana | Matt Thomas</author>
 	<authorEmail>support@construct-framework.com</authorEmail>
@@ -31,7 +31,7 @@
 		div.panel fieldset {margin-bottom:0;padding-bottom:0;}
 		table.admintable td.key, table.admintable td.paramlist_key {border:none;}
 	</style>
-	<a href="http://construct-framework.com/" target="_blank"><img src="../templates/jdaynyc2011/images/logo.png"></a>
+	<a href="http://construct-framework.com/" target="_blank"><img src="../templates/ubuntuism/images/logo.png"></a>
 		<div class="clr"></div>		
 		<div class="t"><div class="t"><div class="t"></div></div></div><!-- top -->		
 		<div class="m">									
@@ -107,8 +107,8 @@
     </files>
 	
 	<languages>
-		<language tag="en-GB">en-GB.tpl_jdaynyc2011.ini</language>
-		<language tag="en-GB">en-GB.tpl_jdaynyc2011.sys.ini</language>
+		<language tag="en-GB">en-GB.tpl_ubuntuism.ini</language>
+		<language tag="en-GB">en-GB.tpl_ubuntuism.sys.ini</language>
 	</languages>
 	
 	<positions>
@@ -164,88 +164,88 @@
 	
 	<config>
 		<fields name="params">
-			<fieldset name="general" addfieldpath="/templates/jdaynyc2011/elements/onward" >
-				<field name="enableSwitcher" type="radio" default="0" label="TPL_JDAYNYC2011_ENABLE_SWITCHER_LABEL" description="TPL_JDAYNYC2011_ENABLE_SWITCHER_DESC">
+			<fieldset name="general" addfieldpath="/templates/ubuntuism/elements/onward" >
+				<field name="enableSwitcher" type="radio" default="0" label="TPL_UBUNTUISM_ENABLE_SWITCHER_LABEL" description="TPL_UBUNTUISM_ENABLE_SWITCHER_DESC">
 					<option value="1">Show</option>
 					<option value="0">Hide</option>
 				</field>
-				<field name="showDiagnostics" type="radio" default="0" label="TPL_JDAYNYC2011_SHOW_DIAGNOSTICS_LABEL" description="TPL_JDAYNYC2011_SHOW_DIAGNOSTICS_DESC">
+				<field name="showDiagnostics" type="radio" default="0" label="TPL_UBUNTUISM_SHOW_DIAGNOSTICS_LABEL" description="TPL_UBUNTUISM_SHOW_DIAGNOSTICS_DESC">
 					<option value="1">Show</option>
 					<option value="0">Hide</option>
 				</field>
-				<field name="inheritLayout" type="radio" default="0" label="TPL_JDAYNYC2011_INHERIT_CAT_LAYOUT_LABEL" description="TPL_JDAYNYC2011_INHERIT_CAT_LAYOUT_DESC">
+				<field name="inheritLayout" type="radio" default="0" label="TPL_UBUNTUISM_INHERIT_CAT_LAYOUT_LABEL" description="TPL_UBUNTUISM_INHERIT_CAT_LAYOUT_DESC">
 					<option value="1">Yes</option>
 					<option value="0">No</option>
 				</field>				
-				<field name="inheritStyle" type="radio" default="0" label="TPL_JDAYNYC2011_INHERIT_CAT_STYLE_LABEL" description="TPL_JDAYNYC2011_INHERIT_CAT_STYLE_DESC">
+				<field name="inheritStyle" type="radio" default="0" label="TPL_UBUNTUISM_INHERIT_CAT_STYLE_LABEL" description="TPL_UBUNTUISM_INHERIT_CAT_STYLE_DESC">
 					<option value="1">Yes</option>
 					<option value="0">No</option>
 				</field>		
-				<field name="customStyleSheet" type="filelist" default="example.css" label="TPL_JDAYNYC2011_CUSTOM_STYLE_SHEET_LABEL" directory="templates/jdaynyc2011/css" filter="\.css" exclude="core-classes-ids\.css|diagnostic\.css|editor\.css|modal\.css|normal\.css|print\.css|rtl\.css|screen\.css|ie6\.css|wireframe\.css|mobile\.css|mobile\.css" description="TPL_JDAYNYC2011_CUSTOM_STYLE_SHEET_DESC" />
+				<field name="customStyleSheet" type="filelist" default="example.css" label="TPL_UBUNTUISM_CUSTOM_STYLE_SHEET_LABEL" directory="templates/ubuntuism/css" filter="\.css" exclude="core-classes-ids\.css|diagnostic\.css|editor\.css|modal\.css|normal\.css|print\.css|rtl\.css|screen\.css|ie6\.css|wireframe\.css|mobile\.css|mobile\.css" description="TPL_UBUNTUISM_CUSTOM_STYLE_SHEET_DESC" />
 				<field name="setGeneratorTag" type="text" default="Construct Framework | http://Construct-Framework.com" label="Generator Meta Tag" description="Customize the generator meta tag output by your template." size="56" />
 			</fieldset>
 			<fieldset name="IE">
-				<field name="IECSS3" type="radio" default="1" label="TPL_JDAYNYC2011_IE_CSS3_LABEL" description="TPL_JDAYNYC2011_IE_CSS3_DESC">
+				<field name="IECSS3" type="radio" default="1" label="TPL_UBUNTUISM_IE_CSS3_LABEL" description="TPL_UBUNTUISM_IE_CSS3_DESC">
 		        	<option value="1">Yes</option>
 		        	<option value="0">No</option>
 		    	</field>			
-				<field name="IECSS3Targets" type="textarea" default=".drop-shadow, .outline, .rounded, ul.menu li" label="TPL_JDAYNYC2011_IE_CSS3_TARGETS_LABEL" description="TPL_JDAYNYC2011_IE_CSS3_TARGETS_DESC" rows="5" cols="50" />
-				<field name="IE6TransFix" type="radio" default="1" label="TPL_JDAYNYC2011_IE6_TRANS_FIX_LABEL" description="TPL_JDAYNYC2011_IE6_TRANS_FIX_DESC">
+				<field name="IECSS3Targets" type="textarea" default=".drop-shadow, .outline, .rounded, ul.menu li" label="TPL_UBUNTUISM_IE_CSS3_TARGETS_LABEL" description="TPL_UBUNTUISM_IE_CSS3_TARGETS_DESC" rows="5" cols="50" />
+				<field name="IE6TransFix" type="radio" default="1" label="TPL_UBUNTUISM_IE6_TRANS_FIX_LABEL" description="TPL_UBUNTUISM_IE6_TRANS_FIX_DESC">
 		        	<option value="1">Yes</option>
 		        	<option value="0">No</option>
 		    	</field>		
-				<field name="IE6TransFixTargets" type="textarea" default="h1 a" label="TPL_JDAYNYC2011_IE6_TRANS_FIX_TARGETS_LABEL" description="TPL_JDAYNYC2011_IE6_TRANS_FIX_TARGETS_DESC" rows="5" cols="50" />
+				<field name="IE6TransFixTargets" type="textarea" default="h1 a" label="TPL_UBUNTUISM_IE6_TRANS_FIX_TARGETS_LABEL" description="TPL_UBUNTUISM_IE6_TRANS_FIX_TARGETS_DESC" rows="5" cols="50" />
 			</fieldset>			
 			<fieldset name="javascript">									
-				<field name="loadMoo" type="radio" default="1" label="TPL_JDAYNYC2011_LOAD_MOO_LABEL" description="TPL_JDAYNYC2011_LOAD_MOO_DESC">
+				<field name="loadMoo" type="radio" default="1" label="TPL_UBUNTUISM_LOAD_MOO_LABEL" description="TPL_UBUNTUISM_LOAD_MOO_DESC">
 					<option value="1">Yes</option>
 					<option value="0">No</option>
 				</field>
-				<field name="loadModal" type="radio" default="1" label="TPL_JDAYNYC2011_LOAD_MODAL_LABEL" description="TPL_JDAYNYC2011_LOAD_MODAL_DESC">
+				<field name="loadModal" type="radio" default="1" label="TPL_UBUNTUISM_LOAD_MODAL_LABEL" description="TPL_UBUNTUISM_LOAD_MODAL_DESC">
 					<option value="1">Yes</option>
 					<option value="0">No</option>
 				</field>
-				<field name="loadjQuery" type="jqueryversion" default="" label="TPL_JDAYNYC2011_LOAD_JQUERY_LABEL" description="TPL_JDAYNYC2011_LOAD_JQUERY_DESC" />
+				<field name="loadjQuery" type="jqueryversion" default="" label="TPL_UBUNTUISM_LOAD_JQUERY_LABEL" description="TPL_UBUNTUISM_LOAD_JQUERY_DESC" />
 			</fieldset>
 			<fieldset name="Layout">				
-				<field name="siteWidth" type="text" default="80.5" label="TPL_JDAYNYC2011_SITE_WIDTH_LABEL" description="TPL_JDAYNYC2011_SITE_WIDTH_DESC" size="10" />
-				<field name="siteWidthType" type="radio" default="max-width" label="TPL_JDAYNYC2011_SITE_WIDTH_TYPE_LABEL" description="TPL_JDAYNYC2011_SITE_WIDTH_TYPE_DESC">
+				<field name="siteWidth" type="text" default="80.5" label="TPL_UBUNTUISM_SITE_WIDTH_LABEL" description="TPL_UBUNTUISM_SITE_WIDTH_DESC" size="10" />
+				<field name="siteWidthType" type="radio" default="max-width" label="TPL_UBUNTUISM_SITE_WIDTH_TYPE_LABEL" description="TPL_UBUNTUISM_SITE_WIDTH_TYPE_DESC">
 					<option value="max-width">Fluid Max Width</option>
 					<option value="width">Fixed Width</option>
 				</field>
-				<field name="siteWidthUnit" type="radio" default="em" label="TPL_JDAYNYC2011_SITE_WIDTH_UNIT_LABEL" description="TPL_JDAYNYC2011_SITE_WIDTH_UNIT_DESC">
+				<field name="siteWidthUnit" type="radio" default="em" label="TPL_UBUNTUISM_SITE_WIDTH_UNIT_LABEL" description="TPL_UBUNTUISM_SITE_WIDTH_UNIT_DESC">
 					<option value="em">Em</option>
 					<option value="px">Pixel</option>
 					<option value="%">Percent</option>
 				</field>	
-				<field name="fluidMedia" type="radio" default="0" label="TPL_JDAYNYC2011_FLUID_MEDIA_LABEL" description="TPL_JDAYNYC2011_FLUID_MEDIA_DESC">
+				<field name="fluidMedia" type="radio" default="0" label="TPL_UBUNTUISM_FLUID_MEDIA_LABEL" description="TPL_UBUNTUISM_FLUID_MEDIA_DESC">
 				  <option value="1">Yes</option>
 				  <option value="0">No</option>
 				</field>				
-				<field name="fullWidth" type="radio" default="1" label="TPL_JDAYNYC2011_FULL_WIDTH_LABEL" description="TPL_JDAYNYC2011_FULL_WIDTH_DESC">
+				<field name="fullWidth" type="radio" default="1" label="TPL_UBUNTUISM_FULL_WIDTH_LABEL" description="TPL_UBUNTUISM_FULL_WIDTH_DESC">
 				  <option value="1">Yes</option>
 				  <option value="0">No</option>
 				</field>
-				<field name="useStickyFooter" type="radio" default="1" label="TPL_JDAYNYC2011_USE_STICKY_FOOTER_LABEL" description="TPL_JDAYNYC2011_USE_STICKY_FOOTER_DESC">
+				<field name="useStickyFooter" type="radio" default="1" label="TPL_UBUNTUISM_USE_STICKY_FOOTER_LABEL" description="TPL_UBUNTUISM_USE_STICKY_FOOTER_DESC">
         			<option value="1">On</option>
         			<option value="0">Off</option>
 		    	</field>
-				<field name="stickyFooterHeight" type="text" default="175" label="TPL_JDAYNYC2011_STICKY_FOOTER_HEIGHT_LABEL" description="TPL_JDAYNYC2011_STICKY_FOOTER_HEIGHT_DESC" size="5" />
+				<field name="stickyFooterHeight" type="text" default="175" label="TPL_UBUNTUISM_STICKY_FOOTER_HEIGHT_LABEL" description="TPL_UBUNTUISM_STICKY_FOOTER_HEIGHT_DESC" size="5" />
 			</fieldset>
 			<fieldset name="mobile">
-				<field name="mdetect" type="radio" default="1" label="TPL_JDAYNYC2011_MDETECT_LABEL" description="TPL_JDAYNYC2011_MDETECT_DESC">
+				<field name="mdetect" type="radio" default="1" label="TPL_UBUNTUISM_MDETECT_LABEL" description="TPL_UBUNTUISM_MDETECT_DESC">
 					<option value="1">Yes</option>
 					<option value="0">No</option>
 				</field>
-				<field name="detectTablets" type="radio" default="1" label="TPL_JDAYNYC2011_DETECT_TABLETS_LABEL" description="TPL_JDAYNYC2011_DETECT_TABLETS_DESC">
+				<field name="detectTablets" type="radio" default="1" label="TPL_UBUNTUISM_DETECT_TABLETS_LABEL" description="TPL_UBUNTUISM_DETECT_TABLETS_DESC">
 					<option value="1">Yes</option>
 					<option value="0">No</option>
 				</field>				
-				<field name="mNavPosition" type="radio" default="1" label="TPL_JDAYNYC2011_MNAVPOSITION_LABEL" description="TPL_JDAYNYC2011_MNAVPOSITION_DESC">
+				<field name="mNavPosition" type="radio" default="1" label="TPL_UBUNTUISM_MNAVPOSITION_LABEL" description="TPL_UBUNTUISM_MNAVPOSITION_DESC">
 					<option value="1">Before Content</option>
 					<option value="0">After Content</option>
 				</field>
-				<field name="mPageDataTheme" type="list" default="" label="TPL_JDAYNYC2011_MPAGEDATATHEME_LABEL" description="TPL_JDAYNYC2011_MPAGEDATATHEME_DESC">
+				<field name="mPageDataTheme" type="list" default="" label="TPL_UBUNTUISM_MPAGEDATATHEME_LABEL" description="TPL_UBUNTUISM_MPAGEDATATHEME_DESC">
 					<option value="">- None Selected -</option>
 					<option value="a">Black</option>
 					<option value="b">Blue</option>
@@ -253,7 +253,7 @@
 					<option value="d">Dark Gray</option>
 					<option value="e">Accent</option>
 				</field>
-				<field name="mHeaderDataTheme" type="list" default="" label="TPL_JDAYNYC2011_MHEADERDATATHEME_LABEL" description="TPL_JDAYNYC2011_MHEADERDATATHEME_DESC">
+				<field name="mHeaderDataTheme" type="list" default="" label="TPL_UBUNTUISM_MHEADERDATATHEME_LABEL" description="TPL_UBUNTUISM_MHEADERDATATHEME_DESC">
 					<option value="">- None Selected -</option>
 					<option value="a">Black</option>
 					<option value="b">Blue</option>
@@ -261,7 +261,7 @@
 					<option value="d">Dark Gray</option>
 					<option value="e">Accent</option>
 				</field>	
-				<field name="mNavDataTheme" type="list" default="" label="TPL_JDAYNYC2011_MNAVDATATHEME_LABEL" description="TPL_JDAYNYC2011_MNAVDATATHEME_DESC">
+				<field name="mNavDataTheme" type="list" default="" label="TPL_UBUNTUISM_MNAVDATATHEME_LABEL" description="TPL_UBUNTUISM_MNAVDATATHEME_DESC">
 					<option value="">- None Selected -</option>
 					<option value="a">Black</option>
 					<option value="b">Blue</option>
@@ -269,7 +269,7 @@
 					<option value="d">Dark Gray</option>
 					<option value="e">Accent</option>
 				</field>	
-				<field name="mContentDataTheme" type="list" default="" label="TPL_JDAYNYC2011_MCONTENTDATATHEME_LABEL" description="TPL_JDAYNYC2011_MCONTENTDATATHEME_DESC">
+				<field name="mContentDataTheme" type="list" default="" label="TPL_UBUNTUISM_MCONTENTDATATHEME_LABEL" description="TPL_UBUNTUISM_MCONTENTDATATHEME_DESC">
 					<option value="">- None Selected -</option>
 					<option value="a">Black</option>
 					<option value="b">Blue</option>
@@ -277,7 +277,7 @@
 					<option value="d">Dark Gray</option>
 					<option value="e">Accent</option>
 				</field>																	
-				<field name="mFooterDataTheme" type="list" default="" label="TPL_JDAYNYC2011_MFOOTERDATATHEME_LABEL" description="TPL_JDAYNYC2011_MFOOTERDATATHEME_DESC">
+				<field name="mFooterDataTheme" type="list" default="" label="TPL_UBUNTUISM_MFOOTERDATATHEME_LABEL" description="TPL_UBUNTUISM_MFOOTERDATATHEME_DESC">
 					<option value="">- None Selected -</option>
 					<option value="a">Black</option>
 					<option value="b">Blue</option>
@@ -287,25 +287,25 @@
 				</field>					
 			</fieldset>							
 			<fieldset name="typography">		
-				<field name="googleWebFont" type="googlewebfont" default="" label="TPL_JDAYNYC2011_GOOGLE_WEB_FONT_LABEL" description="TPL_JDAYNYC2011_GOOGLE_WEB_FONT_DESC" />
-				<field name="googleWebFontTargets" type="text" default="h1,h2,h3,h4,h5,h6" label="TPL_JDAYNYC2011_GOOGLE_WEB_FONT_TARGETS_LABEL" description="TPL_JDAYNYC2011_GOOGLE_WEB_FONT_TARGETS_DESC" size="50" />
-				<field name="googleWebFontSize" type="text" default="85%" label="TPL_JDAYNYC2011_GOOGLE_WEB_FONT_SIZE_LABEL" description="TPL_JDAYNYC2011_GOOGLE_WEB_FONT_SIZE_DESC" size="5" />
+				<field name="googleWebFont" type="googlewebfont" default="" label="TPL_UBUNTUISM_GOOGLE_WEB_FONT_LABEL" description="TPL_UBUNTUISM_GOOGLE_WEB_FONT_DESC" />
+				<field name="googleWebFontTargets" type="text" default="h1,h2,h3,h4,h5,h6" label="TPL_UBUNTUISM_GOOGLE_WEB_FONT_TARGETS_LABEL" description="TPL_UBUNTUISM_GOOGLE_WEB_FONT_TARGETS_DESC" size="50" />
+				<field name="googleWebFontSize" type="text" default="85%" label="TPL_UBUNTUISM_GOOGLE_WEB_FONT_SIZE_LABEL" description="TPL_UBUNTUISM_GOOGLE_WEB_FONT_SIZE_DESC" size="5" />
 				<field type="spacer" default=" " />				
-				<field name="googleWebFont2" type="googlewebfont" default="" label="TPL_JDAYNYC2011_GOOGLE_WEB_FONT_LABEL" description="TPL_JDAYNYC2011_GOOGLE_WEB_FONT_DESC" />
-				<field name="googleWebFontTargets2" type="text" default="h1,h2,h3,h4,h5,h6" label="TPL_JDAYNYC2011_GOOGLE_WEB_FONT_TARGETS_LABEL" description="TPL_JDAYNYC2011_GOOGLE_WEB_FONT_TARGETS_DESC" size="50"/>
-				<field name="googleWebFontSize2" type="text" default="2.1em" label="TPL_JDAYNYC2011_GOOGLE_WEB_FONT_SIZE_LABEL" description="TPL_JDAYNYC2011_GOOGLE_WEB_FONT_SIZE_DESC" size="5" />
+				<field name="googleWebFont2" type="googlewebfont" default="" label="TPL_UBUNTUISM_GOOGLE_WEB_FONT_LABEL" description="TPL_UBUNTUISM_GOOGLE_WEB_FONT_DESC" />
+				<field name="googleWebFontTargets2" type="text" default="h1,h2,h3,h4,h5,h6" label="TPL_UBUNTUISM_GOOGLE_WEB_FONT_TARGETS_LABEL" description="TPL_UBUNTUISM_GOOGLE_WEB_FONT_TARGETS_DESC" size="50"/>
+				<field name="googleWebFontSize2" type="text" default="2.1em" label="TPL_UBUNTUISM_GOOGLE_WEB_FONT_SIZE_LABEL" description="TPL_UBUNTUISM_GOOGLE_WEB_FONT_SIZE_DESC" size="5" />
 				<field type="spacer" default=" " />				
-				<field name="googleWebFont3" type="googlewebfont" default="" label="TPL_JDAYNYC2011_GOOGLE_WEB_FONT_LABEL" description="TPL_JDAYNYC2011_GOOGLE_WEB_FONT_DESC" />
-				<field name="googleWebFontTargets3" type="text" default="h1,h2,h3,h4,h5,h6" label="TPL_JDAYNYC2011_GOOGLE_WEB_FONT_TARGETS_LABEL" description="TPL_JDAYNYC2011_GOOGLE_WEB_FONT_TARGETS_DESC" size="50" />
-				<field name="googleWebFontSize3" type="text" default="20px" label="TPL_JDAYNYC2011_GOOGLE_WEB_FONT_SIZE_LABEL" description="TPL_JDAYNYC2011_GOOGLE_WEB_FONT_SIZE_DESC" size="5" />
+				<field name="googleWebFont3" type="googlewebfont" default="" label="TPL_UBUNTUISM_GOOGLE_WEB_FONT_LABEL" description="TPL_UBUNTUISM_GOOGLE_WEB_FONT_DESC" />
+				<field name="googleWebFontTargets3" type="text" default="h1,h2,h3,h4,h5,h6" label="TPL_UBUNTUISM_GOOGLE_WEB_FONT_TARGETS_LABEL" description="TPL_UBUNTUISM_GOOGLE_WEB_FONT_TARGETS_DESC" size="50" />
+				<field name="googleWebFontSize3" type="text" default="20px" label="TPL_UBUNTUISM_GOOGLE_WEB_FONT_SIZE_LABEL" description="TPL_UBUNTUISM_GOOGLE_WEB_FONT_SIZE_DESC" size="5" />
 			</fieldset>			
 			<fieldset name="version_check">
-				<field label="TPL_JDAYNYC2011_VERSION_CHECK_LABEL" type="upgradecheck" />
+				<field label="TPL_UBUNTUISM_VERSION_CHECK_LABEL" type="upgradecheck" />
 			</fieldset>	
 		</fields>
 	</config>	
 	
-	<params addpath="/templates/jdaynyc2011/elements/present">
+	<params addpath="/templates/ubuntuism/elements/present">
 		<param type="panel" title="General" />			
 		<param name="enableSwitcher" type="radio" default="0" label="Layout Aid" description="Enable the ajax style sheet switcher to use the diagnostic and wireframe visual layout aids.">
 			<option value="1">Show</option>
@@ -315,7 +315,7 @@
       <option value="1">Show</option>
     	<option value="0">Hide</option>
     </param>
-		<param name="customStyleSheet" type="filelist" default="example.css" label="Custom style sheet" directory="templates/jdaynyc2011/css" filter="\.css" exclude="core-css-classes-ids\.css|diagnostic\.css|editor\.css|modal\.css|normal\.css|print\.css|rtl\.css|screen\.css|core-classes-ids\.css|ie6\.css|overrides\.css|mobile\.css|wireframe\.css" description="Name of the style sheet that contains your custom CSS declarations. Default is custom.css." />
+		<param name="customStyleSheet" type="filelist" default="example.css" label="Custom style sheet" directory="templates/ubuntuism/css" filter="\.css" exclude="core-css-classes-ids\.css|diagnostic\.css|editor\.css|modal\.css|normal\.css|print\.css|rtl\.css|screen\.css|core-classes-ids\.css|ie6\.css|overrides\.css|mobile\.css|wireframe\.css" description="Name of the style sheet that contains your custom CSS declarations. Default is custom.css." />
 		<param name="setGeneratorTag" type="text" default="Construct Framework | http://Construct-Framework.com" label="Generator Meta Tag" description="Customize the generator meta tag output by your template." size="56" />
 <param type="panel" title="Internet Explorer" />		
 		<param name="IECSS3" type="radio" default="1" label="Add CSS3 Support to IE" description="Enable the use of PIE (http://css3pie.com/) to add CSS3 support to Internet Explorer version 8 and before. Also adds pie_hover class to non-link items on hover. For performance reason, you must define the tagret elements below.">
