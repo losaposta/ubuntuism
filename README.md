@@ -144,22 +144,22 @@ template:
 
 9. Open this file ( layouts/index.php ) in your editor and cut/paste lines 175-177 to directly after the logo on line 103.
 	<pre>
-	&lt;? php if ($this->countModules('breadcrumbs')) : ?>
+	&lt;?php if ($this->countModules('breadcrumbs')) : ?>
 		&lt;jdoc:include type="module" name="breadcrumbs" />
-	&lt;? php endif; ?></pre>
+	&lt;?php endif; ?></pre>
 
 10. While we are editing the layout of the template, let's remove the in-page links by deleting lines  113-124
 	<pre>
 	&lt;nav&gt;
 		&lt;ul id="access"&gt;
 		  &lt;li&gt;Jump to:&lt;/li&gt;
-		  &lt;li&gt;<a href="&lt;? php $url->setFragment('content'); echo $url->toString();?>" class="to-content">Content</a>&lt;/li&gt;
-		  &lt;? php if ($this->countModules('nav')) : ?>
-			&lt;li&gt;<a href="&lt;? php $url->setFragment('nav'); echo $url->toString();?>" class="to-nav">Navigation</a>&lt;/li&gt;
-		  &lt;? php endif; ?>
-		  &lt;? php if ($contentBelowCount) : ?>
-			&lt;li&gt;<a href="&lt;? php $url->setFragment('additional'); echo $url->toString();?>" class="to-additional">Additional Information</a></li>
-		  &lt;? php endif; ?>
+		  &lt;li&gt;<a href="&lt;?php $url->setFragment('content'); echo $url->toString();?>" class="to-content">Content</a>&lt;/li&gt;
+		  &lt;?php if ($this->countModules('nav')) : ?>
+			&lt;li&gt;<a href="&lt;?php $url->setFragment('nav'); echo $url->toString();?>" class="to-nav">Navigation</a>&lt;/li&gt;
+		  &lt;?php endif; ?>
+		  &lt;?php if ($contentBelowCount) : ?>
+			&lt;li&gt;<a href="&lt;?php $url->setFragment('additional'); echo $url->toString();?>" class="to-additional">Additional Information</a></li>
+		  &lt;?php endif; ?>
 		&lt;/ul&gt;
 	&lt;/nav&gt;</pre>
 
