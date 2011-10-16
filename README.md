@@ -158,7 +158,7 @@ template:
 			&lt;li&gt;<a href="&lt;?php $url->setFragment('nav'); echo $url->toString();?>" class="to-nav">Navigation</a>&lt;/li&gt;
 		  &lt;?php endif; ?>
 		  &lt;?php if ($contentBelowCount) : ?>
-			&lt;li&gt;<a href="&lt;?php $url->setFragment('additional'); echo $url->toString();?>" class="to-additional">Additional Information</a></li>
+			&lt;li&gt;<a href="&lt;?php $url->setFragment('additional'); echo $url->toString();?>" class="to-additional">Additional Information</a>&lt;/li&gt
 		  &lt;?php endif; ?>
 		&lt;/ul&gt;
 	&lt;/nav&gt;</pre>
