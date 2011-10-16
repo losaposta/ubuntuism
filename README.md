@@ -137,6 +137,8 @@ template:
 
 7. We will now customize the look of the breadcrumbs, so let's first create a breadcrumbs module in Joomla, assign it to the "breadrumbs" position. Set Show "You are here" to No.
 
+8. While we're at it, let's go ahead and change the module position assignment of the Main Menu module from *position-7* to *nav*. Set the module assignment to *On All Pages*.
+
 8. As you can see, the breadcrumbs are not where we want them, so we will now override the default layout of the template. This is done by either editing the template's root index.php file or by creating an extended template override, something unique to Construct.
 	* Open the installation package and copy the <b>layouts/index.php</b> file to the <b>layouts</b> directory of your
 	template.
