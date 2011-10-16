@@ -11,11 +11,11 @@ For the workshop, we will recreating the Ubuntu 11.04 classic desktop experience
 1. Start with a clean installation of Joomla, preferably 1.7, with sample data installed.
 2. <a href="https://github.com/betweenbrain/ubuntuism/zipball/master">Download</a> the master branch zip and
 install it as you would any extension.
-3. Set ubuntuism as the default template in Joomla's template manager.
-4. Create a blank styles sheet, named whatever you'd like, within the CSS directory of the ubuntuism template (i.e.
+3. Set *ubuntuism* as the default template in Joomla's template manager.
+4. Create a blank styles sheet, named whatever you'd like, within the CSS directory of the *ubuntuism* template (i.e.
  var/www/joomla/templates/ubuntuism/css ).
-5. Open ubuntuism in Template Manager: Styles (in Joomla 1.7) and select the name of the style sheet that you just
-created in the Custom Style Sheet drop-down and click save.
+5. Open *ubuntuism* in Template Manager: Styles (in Joomla 1.7) and select the name of the style sheet that you just
+created in the Custom Style Sheet drop-down. While we're in there, under the Layout parameter section, select Off next to Use CSS Sticky Footer. Click Save & Close.
 6. Open the style sheet that you just created in your favorite editor and begin adding the custom styles for this
 template:
 
@@ -163,4 +163,10 @@ template:
 		&lt;/ul&gt;
 	&lt;/nav&gt;</pre>
 
-11. We'll also move the main navigation to 
+11. We'll also move the main navigation, lines 167-171, to the final portion of the primary header, so that it now begins at line 121
+   <pre>
+	<?php if ($this->countModules('nav')) : ?>
+		<nav id="nav" class="clear clearfix">
+			<jdoc:include type="modules" name="nav" style="raw" />
+		</nav><!-- end nav-->
+	<?php endif; ?></pre>
