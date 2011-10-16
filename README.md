@@ -105,6 +105,10 @@ template:
 
 	h. Once again, we will override Construct's default style, this time for the logo
 	<pre>
+	#logo {
+		font-size: 1em;
+		padding-right:.25em;
+	}
 	#logo a:link,
 	#logo a:visited,
 	#logo a:hover,
@@ -116,6 +120,9 @@ template:
 		font-family: 'Ubuntu', sans-serif;
 		color:#fff;
 		font-weight:bold;
+	}
+	#logo a:after {
+    	content:": /"
 	}</pre>
 
 	i. Let's customize the color and behavior of the anchors tags
@@ -136,21 +143,24 @@ template:
 	* We created the layout override capability to allow for you to be able to create custom layouts and to be able to later upgrade the template without loosing your customizations.
 
 9. Open this file ( layouts/index.php ) in your editor and cut/paste lines 175-177 to directly after the logo on line 103.
-	<pre><?php if ($this->countModules('breadcrumbs')) : ?>
-			<jdoc:include type="module" name="breadcrumbs" />
-		<?php endif; ?></pre>
+	<pre>
+	&lt;? php if ($this->countModules('breadcrumbs')) : ?>
+		<jdoc:include type="module" name="breadcrumbs" />
+	&lt;? php endif; ?></pre>
 
 10. While we are editing the layout of the template, let's remove the in-page links by deleting lines  113-124
 	<pre>
 	<nav>
 		<ul id="access">
 		  <li>Jump to:</li>
-		  <li><a href="<?php $url->setFragment('content'); echo $url->toString();?>" class="to-content">Content</a></li>
-		  <?php if ($this->countModules('nav')) : ?>
-			<li><a href="<?php $url->setFragment('nav'); echo $url->toString();?>" class="to-nav">Navigation</a></li>
-		  <?php endif; ?>
-		  <?php if ($contentBelowCount) : ?>
-			<li><a href="<?php $url->setFragment('additional'); echo $url->toString();?>" class="to-additional">Additional Information</a></li>
-		  <?php endif; ?>
+		  <li><a href="&lt;? php $url->setFragment('content'); echo $url->toString();?>" class="to-content">Content</a></li>
+		  &lt;? php if ($this->countModules('nav')) : ?>
+			<li><a href="&lt;? php $url->setFragment('nav'); echo $url->toString();?>" class="to-nav">Navigation</a></li>
+		  &lt;? php endif; ?>
+		  &lt;? php if ($contentBelowCount) : ?>
+			<li><a href="&lt;? php $url->setFragment('additional'); echo $url->toString();?>" class="to-additional">Additional Information</a></li>
+		  &lt;? php endif; ?>
 		</ul>
 	</nav></pre>
+
+11. We'll also move the main navigation to 
