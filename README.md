@@ -57,7 +57,7 @@ template:
     	background: rgba(44, 0, 30,.8);
     	font-family: 'Ubuntu', sans-serif;
     	border:2px solid #333;
-    -	moz-border-radius: 12px 12px 0 0;
+    	-moz-border-radius: 12px 12px 0 0;
 		-webkit-border-radius: 12px 12px 0 0;
 		border-radius: 12px 12px 0 0;
 		-moz-background-clip: padding;
