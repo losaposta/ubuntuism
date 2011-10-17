@@ -13,7 +13,7 @@
 
 <header id="intro" class="slide">
 	<h1>Ubuntuism</h1>
-	<h2>(Rapid Template Development for the Joomla! CMS)</h2>
+	<h2>(exploring the rapid development of templates for the Joomla! CMS)</h2>
 	<section>
 		<p>By Matt Thomas | <a href="http://betweenbrain.com">betweenbrain.com</a> | <a href="http://construct-framework.com">construct-framework.cm</a></p>
 		<p>Clone this presentation, and demo template, at <a href="https://github.com/betweenbrain/ubuntuism">github.com/betweenbrain/ubuntuism</a><p>
@@ -21,49 +21,88 @@
 	</section>
 		<p class="presenter-notes">Talk about flow of presentation and workshop. Attendees need a clean install of Joomla, with sample data, and the base template installed.</p>		
 </header>
+
 <section>
 	<header class="slide">
-		<h1>What is Ubuntuism?</h1>
+		<h1>Goal of Ubuntuism</h1>
 	</header>
 	
-	<section class="slide" title="CSSS: Introduction">
-		<h2>The Process & Philosophy</h2>
-		<ul>
+	<section class="slide" title="Goal of Ubuntuism">
+		<h2 class="centered">To be able to create one-of-a-kind Joomla! templates more quickly without imposing creative limitations.</h2>
+	</section>
+</section>
+
+<section class="slide">
+	<h2>Background</h2>
+	<p class="delayed">My personal experience when learning how to create Joomla! templates.</p>
+	<ul>
+		<li class="delayed">After I created my first one, I found myself reusing the same blocks of code</li>
+		<li class="delayed">Start new templates by stripping unique parts from the last template</li>
+		<li class="delayed">Eventually built a re-usable code base (a.k.a. skeleton template) in 2008</li>
+		<li class="delayed">Construct born in January 2009, public in 2010, evolving since</li>
+	</ul>
+</section>
+
+<section>
+	<header class="slide">
+			<h1>Achieving Ubuntuism</h1>
+	</header>
+
+	<section class="slide" title="Achieving Ubuntuism">
+		<h2>Process & Mind-set</h2>
+		<ul class="centered">
 			<li class="delayed">Start every template with same foundational code (i.e. framework)</li>
-			<li class="delayed">Continously identify code that can be reused and improved</li>
-			<li class="delayed">Kaizen - continuous improvement philosophy <a href="http://en.wikipedia.org/wiki/Kaizen">wikipedia.org/wiki/Kaizen</a></li>
+			<li class="delayed">Continuously identify code that can be reused and improved</li>
 			<li class="delayed">Isolate unique aspects of every template per project basis</li>
+			<li class="delayed">Kaizen - Japanese philosophy of continuous improvement <a href="http://en.wikipedia.org/wiki/Kaizen">wikipedia.org/wiki/Kaizen</a></li>
+
 		</ul>
 	</section>
-	
-	<section class="slide">
-		<h2>Background</h2>
-		<ul>
-			<li class="delayed">Found myself reusing the same blocks of code.</li>
-			<li class="delayed">Start new templates by stripping unique parts from the last template</li>
-			<li class="delayed">Eventually built a base (a.k.a. skeleton template) in 2008</li>
-			<li class="delayed">Construct born in January 2009, public in 2010, evolving since</li>					
-		</ul>
-	</section>
-	
+</section>
+
+<section>
+	<header class="slide">
+		<h1>Ubuntuism in Action</h1>
+	</header>
+		
 	<section class="slide">
 		<h2>Approach</h2>
 		<p>Use with existing framework or develop your own</p>
 		<ul>
-			<li class="delayed">Seperate base css: resets/normalization, base typography, positioning, core styles, clearfix...etc</li>
-			<li class="delayed">Centralize base logic, custom parameters (e.g. Google Web Font), specialized functionality</li>
-			<li class="delayed">Provide comprehensive core layout</li>
+			<li class="delayed">Use or customize an existing framework
+				<ul>
+					<li><a href="http://www.joomlajunkie.com/templates/morph/morph.html">Morph - Joomlajunkie</a></li>
+					<li><a href="http://www.yootheme.com/warp/">Warp - YOOtheme</a></li>
+					<li><a href="http://www.gantry-framework.org/">Gantry - RocketTheme</a></li>
+					<li><a href="http://www.joomlart.com/joomla/t3-framework-and-ja-purity-templates">T3 - Joomlart</a></li>
+					<li><a href="http://yjsimplegrid.com/">YjSimpleGrid - Youjoomla</a></li>
+					<li><a href="http://www.joomla-labs.com/freebies/51-template/107-rumi-a-free-template-framework-and-skin.html">Rumi - J!Labs</a></li>
+					<li><a href="http://themeables.com/motif">motif - Themeables</a></li>
+					<li><a href="http://wright.joomlashack.com/">Wright - Joomlashack</a></li>
+					<li><a href="http://construct-framework.com/">Construct - Construct-Framework.com</a></li>
+					<li>... etc</li>
+				</ul>
+			</li>
 		</ul>
 	</section>
-	
+
 	<section class="slide">
 		<h2>Approach</h2>
+		<p>Use with existing framework or develop your ow</p>
 		<ul>
-			<li class="delayed">Add unique styles in seperate (custom) style sheet => preserve customization with upgrade</li>
-			<li class="delayed">Mechanism to override core layout => preserve customization with upgrade</li>
-			<li class="delayed">Upgradability is crtical for effeciently improving code</li> 
+			<li class="delayed">Developing your own can happen through natural, evolutionary process of reviewing past work, reusing and improving it</li>
+			<li class="delayed">Tips
+				<ul>
+					<li>Separate base css: resets/normalization, base typography, positioning, core styles, clearfix...etc</li>
+					<li>Centralize base logic, custom parameters (e.g. Google Web Font), specialized functionality</li>
+					<li>Provide comprehensive core layout</li>
+					<li>Add unique styles in separate (custom) style sheet => preserve customization with upgrade</li>
+					<li>Mechanism to override core layout => preserve customization with upgrade</li>
+					<li>Upgradability is critical for efficiently improving code and deploying it to existing sites</li>
+				</ul>
+			</li>
 		</ul>
-	</section>	
+	</section>
 </section>
 
 <section>
@@ -84,6 +123,8 @@
 <footer class="slide" title="The End">
 	<h2>Thank you!</h2>
 	<p>Get CSSS or contribute at <a href="http://github.com/LeaVerou/CSSS">http://github.com/LeaVerou/CSSS</a></p>
+	<p>Matt Thomas | <a href="http://betweenbrain.com">betweenbrain.com</a> | <a href="http://construct-framework.com">construct-framework.cm</a></p>
+	<p>Clone this presentation, and demo template, at <a href="https://github.com/betweenbrain/ubuntuism">github.com/betweenbrain/ubuntuism</a>
 </footer>
 
 <script src="slideshow.js"></script>
