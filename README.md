@@ -105,7 +105,7 @@ created in the Custom Style Sheet drop-down. While we're in there, under the Lay
 	<pre>
 	#logo {
 		font-size: 1em;
-		padding-right:.25em;
+		padding:.2em;
 	}
 	#logo a:link,
 	#logo a:visited,
@@ -250,7 +250,7 @@ created in the Custom Style Sheet drop-down. While we're in there, under the Lay
 	}</pre>
 	Adjust either to suit your personal tastes.
 
-19. Go ahead and move the follow code (lines 166-122), to just before the logo on line 106
+19. Go ahead and move the follow code (166-122), to just before the logo on line 106
 	<pre>
 	&tl;?php if ($enableSwitcher) : ?&gt;
 		&lt;ul id="style-switch"&gt;
@@ -329,3 +329,5 @@ created in the Custom Style Sheet drop-down. While we're in there, under the Lay
 	  background-image:         linear-gradient(top, #999999, #666666);
 	  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#999999', EndColorStr='#666666');
 	}</pre>
+
+The 

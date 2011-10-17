@@ -46,7 +46,7 @@ body {
 }
 #logo {
     font-size: 1em;
-    padding-right:.25em;
+    padding:.2em;
 }
 #logo a:after{
     content:": /"
@@ -75,7 +75,7 @@ nav.breadcrumbs {
 }
 nav.breadcrumbs ol {
 	margin: 0;
-	padding: 0;
+	padding: .2em 0 0 0;
 }
 #nav {
     margin:5px 0 0 0;
