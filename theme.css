@@ -41,7 +41,6 @@ html {
          url('fonts/Ubuntu-R-webfont.svg#UbuntuRegular') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
 @font-face {
@@ -53,7 +52,6 @@ html {
          url('fonts/Ubuntu-B-webfont.svg#UbuntuBold') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
 
@@ -125,7 +123,7 @@ strong, b {
 
 .slide {
 	padding:0 2.5% 2%;
-	background: rgba(0,0,0,.5);
+	background: rgba(44, 0, 30,.5);
 	background-clip: padding-box;
 	-moz-background-clip: padding-box;
 	text-shadow:.05em .05em .1em rgba(0,0,0,.4);
@@ -142,7 +140,7 @@ strong, b {
 	.slide h2 {
 		font-family: 'UbuntuRegular', Arial, sans-serif;letter-spacing: 0;
 		font-weight: 100;
-		font-size: 1.2in;
+		font-size: 2em;
 	}
 	
 	.slide p,
@@ -272,3 +270,46 @@ section > header.slide {
 		content:  ' (' attr(href) ')';
 	}
 
+/*
+ * Talk Speciic styles
+ */
+
+
+#intro {
+	margin: 0;
+	padding: 0;
+	border:0;
+}
+
+#intro h1 {
+	width: 60%;
+	min-height: 500px;
+	margin: 5% auto 0;
+	font-size: 2em;
+	line-height: 1;
+	text-align: center;	
+}
+
+#intro section {
+	font-weight: bold;
+	text-align: center;
+	font-size: 1em;
+	line-height: 3em;
+	color: rgba(221, 72, 20,.6);
+	text-shadow: none;
+	padding:.6em 0 0;
+	overflow: hidden;
+	background:url(img/HTML5_Logo_128.png) 100% 100% no-repeat;
+	padding:.5em 0;
+}
+
+#intro section p {
+	margin:0;
+	padding:0;
+	line-height:1.3em;
+	font-size:.6em;
+}
+
+#css-controls-demo label {
+	display: block;
+}

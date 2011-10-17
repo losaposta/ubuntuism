@@ -4,23 +4,32 @@
 	border:0;
 }
 
-#intro h1 {
+#intro h1{
 	width: 60%;
-	min-height: 500px;
+	min-height: 2em;
 	margin: 5% auto 0;
 	font-size: 2em;
 	line-height: 1;
 	text-align: center;	
 }
 
+#intro h2{
+	width: 80%;
+	min-height: 500px;
+	margin: 0 auto;
+	font-size: 1em;
+	line-height: 1;
+	text-align: center;
+}
+
 #intro section{
 	font-weight: bold;
 	text-align: center;
 	font-size: 1em;
-	line-height: 3em;
+	line-height: 4em;
 	color: rgba(221, 72, 20,.6);
 	text-shadow: none;
-	padding:.6em 0 0;
+	padding:1em 4em 0 0;
 	overflow: hidden;
 	background:url(img/HTML5_Logo_128.png) 100% 100% no-repeat;
 }
