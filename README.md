@@ -155,12 +155,12 @@ template:
 	&lt;nav&gt;
 		&lt;ul id="access"&gt;
 		  &lt;li&gt;Jump to:&lt;/li&gt;
-		  &lt;li&gt;<a href="&lt;?php $url->setFragment('content'); echo $url->toString();?&gt;" class="to-content"&gt;Content</a>&lt;/li&gt;
+		  &lt;li&gt;&lt;a href="&lt;?php $url->setFragment('content'); echo $url->toString();?&gt;" class="to-content"&gt;Content&lt;/a&gt;&lt;/li&gt;
 		  &lt;?php if ($this->countModules('nav')) : ?&gt;
-			&lt;li&gt;<a href="&lt;?php $url->setFragment('nav'); echo $url->toString();?&gt;" class="to-nav"&gt;Navigation</a>&lt;/li&gt;
+			&lt;li&gt;&lt;a href="&lt;?php $url->setFragment('nav'); echo $url->toString();?&gt;" class="to-nav"&gt;Navigation&lt;/a&gt;&lt;/li&gt;
 		  &lt;?php endif; ?&gt;
 		  &lt;?php if ($contentBelowCount) : ?&gt;
-			&lt;li&gt;<a href="&lt;?php $url->setFragment('additional'); echo $url->toString();?&gt;" class="to-additional"&gt;Additional Information</a>&lt;/li&gt
+			&lt;li&gt;&lt;a href="&lt;?php $url->setFragment('additional'); echo $url->toString();?&gt;" class="to-additional"&gt;Additional Information&lt;/a&gt;&lt;/li&gt
 		  &lt;?php endif; ?&gt;
 		&lt;/ul&gt;
 	&lt;/nav&gt;</pre>
@@ -256,18 +256,18 @@ template:
 	<pre>
 	&tl;?php if ($enableSwitcher) : ?&gt;
 		&lt;ul id="style-switch"&gt;
-			&lt;li&gt;&lt;a href="#" onclick="setActiveStyleSheet('wireframe'); return false;" title="Wireframe"&gt;Wireframe</a>&lt;/li&gt;
-			&lt;li&gt;&lt;a href="#" onclick="setActiveStyleSheet('diagnostic'); return false;" title="Diagnostic"&gt;Diagnostic Mode</a>&lt;/li&gt;
-			&lt;li&gt;&lt;a href="#" onclick="setActiveStyleSheet('normal'); return false;" title="Normal"&gt;Normal Mode</a>&lt;/li&gt;
+			&lt;li&gt;&lt;a href="#" onclick="setActiveStyleSheet('wireframe'); return false;" title="Wireframe"&gt;Wireframe&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href="#" onclick="setActiveStyleSheet('diagnostic'); return false;" title="Diagnostic"&gt;Diagnostic Mode&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href="#" onclick="setActiveStyleSheet('normal'); return false;" title="Normal"&gt;Normal Mode&lt;/a&gt;&lt;/li&gt;
 		&lt;/ul&gt;
 	&tl;?php endif; ?&gt;</pre>
 
 	And change them to:
 	<pre>
 	&lt;ul id="style-switch"&gt;
-		&lt;li class="close"&gt;&lt;a href="#" onclick="setActiveStyleSheet('close'); return false;" title="close"&gt;x</a>&lt;/li&gt;
-		&lt;li class="minimize"&gt;&lt;a href="#" onclick="setActiveStyleSheet('minimize'); return false;" title="minimize"&gt;&#95;</a>&lt;/li&gt;
-		&lt;li class="restore"&gt;&lt;a href="#" onclick="setActiveStyleSheet('restore'); return false;" title="restore"&gt;&#91;&#93;</a>&lt;/li&gt;
+		&lt;li class="close"&gt;&lt;a href="#" onclick="setActiveStyleSheet('close'); return false;" title="close"&gt;x&lt;/a&gt;&lt;/li&gt;
+		&lt;li class="minimize"&gt;&lt;a href="#" onclick="setActiveStyleSheet('minimize'); return false;" title="minimize"&gt;&#95;&lt;/a&gt;&lt;/li&gt;
+		&lt;li class="restore"&gt;&lt;a href="#" onclick="setActiveStyleSheet('restore'); return false;" title="restore"&gt;&#91;&#93;&lt;/a&gt;&lt;/li&gt;
 	&lt;/ul&gt;</pre>
 
 20. The final touch is to add the following css to your custom style sheet to bring the similated buttons to life
