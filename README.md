@@ -168,9 +168,9 @@ template:
 12. We'll also move the main navigation, lines 167-171, to the final portion of the primary header, so that it now begins at line 121
    <pre>
 	&tl;?php if ($this->countModules('nav')) : ?&gt;
-		<nav id="nav" class="clear clearfix"&gt;
-			<jdoc:include type="modules" name="nav" style="raw" />
-		</nav><!-- end nav-->
+		&lt;nav id="nav" class="clear clearfix"&gt;
+			&lt;jdoc:include type="modules" name="nav" style="raw" /&gt;
+		&lt;/nav&gt;<!-- end nav-->
 	&tl;?php endif; ?&gt;</pre>
 
 13. Let's go ahead and load that custom font, courtesy of Google web Fonts. To do so, simply add the following code to the first block of php code of layouts/index.php:
@@ -233,8 +233,8 @@ template:
 
 	We start be adding manually enabling the style sheet switcher, and loading of two custom stylesheets, by adding the following code to our custom layout ( layouts/index.php ).
 	<pre>
-	$doc->addCustomTag('<link rel="alternate stylesheet" href="'.$template.'/css/close.css" type="text/css" media="screen" title="close" />');
-	$doc->addCustomTag('<link rel="alternate stylesheet" href="'.$template.'/css/minimize.css" type="text/css" media="screen" title="minimize" />');
+	$doc->addCustomTag('&lt;link rel="alternate stylesheet" href="'.$template.'/css/close.css" type="text/css" media="screen" title="close" /&gt;');
+	$doc->addCustomTag('&lt;link rel="alternate stylesheet" href="'.$template.'/css/minimize.css" type="text/css" media="screen" title="minimize" /&gt;');
 	$doc->addScript($template.'/js/styleswitch.js')</pre>
 
 	These two style sheets need to be created, and added to the css directorty of your template.
