@@ -1,6 +1,6 @@
-This template will be used as part of the Joomla Dev Day 2011 Rapid Template Development workshop. It is a modified version of Construct5-Pro beta 2, a unified HTML5 template development framework from http://construct-framework.com
+A template developed to demonstrate rapid template development for the Joomla! CMS. It is a modified version of Construct5, a unified / HTML5 version of the Construct Template Development Framework from http://construct-framework.com
 
-Please see http://betweenbrain.github.com/ubuntuism for the introductory presentation to this workshop.
+Please see http://betweenbrain.github.com/ubuntuism for the introductory presentation.
 
 #How to use this framework#
 The Construct Template Development Framework is a code based solution with the goal of streamlining the process of creating one-of-a-kind Joomla! templates, while not limiting your ability to add every bit of your creativity. To get started, install Construct like you would any Joomla extension. Then add a new style sheet to the CSS directory of Construct and select that style sheet in the template's settings from within template manager of Joomla.
@@ -12,12 +12,10 @@ For the workshop, we will recreating the Ubuntu 11.04 classic desktop experience
 2. <a href="https://github.com/betweenbrain/ubuntuism/zipball/master">Download</a> the master branch zip and
 install it as you would any extension.
 3. Set *ubuntuism* as the default template in Joomla's template manager.
-4. Create a blank styles sheet, named whatever you'd like, within the CSS directory of the *ubuntuism* template (i.e.
- var/www/joomla/templates/ubuntuism/css ).
+4. Create a blank styles sheet, named whatever you'd like, within the CSS directory of the *ubuntuism* template (i.e. var/www/joomla/templates/ubuntuism/css ).
 5. Open *ubuntuism* in Template Manager: Styles (in Joomla 1.7) and select the name of the style sheet that you just
 created in the Custom Style Sheet drop-down. While we're in there, under the Layout parameter section, select Off next to Use CSS Sticky Footer. Click Save & Close.
-6. Open the style sheet that you just created in your favorite editor and begin adding the custom styles for this
-template:
+6. Open the style sheet that you just created in your favorite editor and begin adding the custom styles for this template:
 
 	a. Set the background image (available within the images directory of the installer file that you downloaded,
 	or at https://github.com/betweenbrain/ubuntuism/raw/master/images/wallpaper.jpg) :
@@ -135,7 +133,7 @@ template:
     	text-decoration: underline;
 	}</pre>
 
-7. We will now customize the look of the breadcrumbs, so let's first create a breadcrumbs module in Joomla, assign it to the "breadrumbs" position. Set Show "You are here" to No.
+7. We will now customize the look of the breadcrumbs, so let's first create a breadcrumbs module in Joomla, assign it to the "breadcrumbs" position. Set Show "You are here" to No.
 
 8. While we're at it, let's go ahead and change the module position assignment of the Main Menu module from *position-7* to *nav*. Set the module assignment to *On All Pages*.
 
@@ -237,7 +235,7 @@ template:
 	$doc->addCustomTag('&lt;link rel="alternate stylesheet" href="'.$template.'/css/minimize.css" type="text/css" media="screen" title="minimize" /&gt;');
 	$doc->addScript($template.'/js/styleswitch.js')</pre>
 
-	These two style sheets need to be created, and added to the css directorty of your template.
+	These two style sheets need to be created, and added to the css directory of your template.
 
 	close.css needs to only contain <pre>
 	body {
@@ -331,4 +329,3 @@ template:
 	  background-image:         linear-gradient(top, #999999, #666666);
 	  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#999999', EndColorStr='#666666');
 	}</pre>
-

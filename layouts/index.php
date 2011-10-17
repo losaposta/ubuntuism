@@ -7,6 +7,14 @@
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
+// Ubuntu font
+$doc->addStyleSheet('http://fonts.googleapis.com/css?family=Ubuntu');
+
+// Close, minimize buttons
+$doc->addCustomTag('<link rel="alternate stylesheet" href="'.$template.'/css/close.css" type="text/css" media="screen" title="close" />');
+$doc->addCustomTag('<link rel="alternate stylesheet" href="'.$template.'/css/minimize.css" type="text/css" media="screen" title="minimize" />');
+$doc->addScript($template.'/js/styleswitch.js')
+
 ?>
 <!doctype html>
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
@@ -98,34 +106,30 @@
 							    }
 							  } ?>
 				    </ul>
-				<?php endif; ?>	
+				<?php endif; ?>
+				
+				<ul id="style-switch">
+					<li class="close"><a href="#" onclick="setActiveStyleSheet('close'); return false;" title="close">x</a></li>
+					<li class="minimize"><a href="#" onclick="setActiveStyleSheet('minimize'); return false;" title="minimize">&#95;</a></li>
+					<li class="restore"><a href="#" onclick="setActiveStyleSheet('restore'); return false;" title="restore">&#91;&#93;</a></li>
+				</ul>				
 
 				<h1 id="logo"><a href="<?php echo $this->baseurl ?>/" title="<?php echo $app->getCfg('sitename');?>"><?php echo $app->getCfg('sitename');?></a></h1>
+				
+				<?php if ($this->countModules('breadcrumbs')) : ?>						
+					<jdoc:include type="module" name="breadcrumbs" />				
+				<?php endif; ?>		
 				
 				<?php if ($this->countModules('header')) : ?>
 					<jdoc:include type="modules" name="header" style="header" />	
 				<?php endif; ?>
 				
-				<nav>
-					<ul id="access">
-					  <li>Jump to:</li>
-					  <li><a href="<?php $url->setFragment('content'); echo $url->toString();?>" class="to-content">Content</a></li>					
-					  <?php if ($this->countModules('nav')) : ?>
-						<li><a href="<?php $url->setFragment('nav'); echo $url->toString();?>" class="to-nav">Navigation</a></li>
-					  <?php endif; ?>					
-					  <?php if ($contentBelowCount) : ?>
-						<li><a href="<?php $url->setFragment('additional'); echo $url->toString();?>" class="to-additional">Additional Information</a></li>
-					  <?php endif; ?>
-					</ul>
-				</nav>
-
-				<?php if ($enableSwitcher) : ?>
-					<ul id="style-switch">
-						<li><a href="#" onclick="setActiveStyleSheet('wireframe'); return false;" title="Wireframe">Wireframe</a></li>
-						<li><a href="#" onclick="setActiveStyleSheet('diagnostic'); return false;" title="Diagnostic">Diagnostic Mode</a></li>
-						<li><a href="#" onclick="setActiveStyleSheet('normal'); return false;" title="Normal">Normal Mode</a></li>
-					</ul>
-				<?php endif; ?>	
+				
+				<?php if ($this->countModules('nav')) : ?>
+					<nav id="nav" class="clear clearfix">
+						<jdoc:include type="modules" name="nav" style="raw" />
+					</nav><!-- end nav-->
+				<?php endif; ?>
 
 			</div><!--end gutter -->
 		</header><!-- end header-->
@@ -172,16 +176,7 @@
 				</div><!-- end header-below -->
 			<?php endif; ?>
 		
-			<?php if ($this->countModules('breadcrumbs')) : ?>						
-				<jdoc:include type="module" name="breadcrumbs" />				
-			<?php endif; ?>		
 			
-			<?php if ($this->countModules('nav')) : ?>
-				<nav id="nav" class="clear clearfix">
-					<jdoc:include type="modules" name="nav" style="raw" />
-				</nav><!-- end nav-->
-			<?php endif; ?>
-	  
 			<div id="content-container" class="clear clearfix">    
 
 				<?php if ($navBelowCount) : ?>

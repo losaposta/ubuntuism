@@ -8,10 +8,9 @@ html {
 body {
     max-width:90.5em;
     margin:50px auto;
-    background:#2C001E;    
+	background: rgba(44, 0, 30,.8);
     font-family: 'Ubuntu', sans-serif;
     color:#fff;
-    opacity:0.8;
     border:2px solid #333;
     -moz-border-radius: 12px 12px 0 0; 
     -webkit-border-radius: 12px 12px 0 0; 
@@ -23,34 +22,7 @@ body {
     -webkit-box-shadow:  0px 0px 36px #000; 
     box-shadow: 0px 0px 36px #000;
 }
-
-a, a:link, a:visited, a:focus, a:active {
-    color:#DD4814;
-    text-decoration: none;
-}
-nav.breadcrumbs {
-	clear: none;
-}
-nav.breadcrumbs ol {
-	margin: 0;
-	padding: 0;
-}
-.category .cat-list-row0 {
-	background: rgba(119, 33, 111,.5)
-}
-.pagenav {
-    list-style:none !important;
-}
-
-.pagenav li.pagenav-prev {
-    float:left
-}
-.pagenav li.pagenav-next {
-    float:right
-}
-
 #header {
-    background:#333;
     font-weight:bold;
     width:100%;
     -moz-border-radius: 12px 12px 0 0; 
@@ -68,12 +40,17 @@ nav.breadcrumbs ol {
     background-image:         linear-gradient(top, #666666, #333333);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#666666', EndColorStr='#333333');     
 }
-
-#header .gutter {    
+#header .gutter {
     padding:.5em 0 0 .5em;
     margin:0 1em .5em 0;
 }
-
+#logo {
+    font-size: 1em;
+    padding-right:.25em;
+}
+#logo a:after{
+    content:": /"
+}
 #logo a:link,
 #logo a:visited,
 #logo a:hover,
@@ -81,17 +58,25 @@ nav.breadcrumbs ol {
     background:none;
     width:auto;
     height:auto;
-    text-indent:0;    
-    font-family: 'Ubuntu', sans-serif;    
+    text-indent:0;
+    font-family: 'Ubuntu', sans-serif;
     color:#fff;
-    font-weight:bold;
+    font-weight:bold;    
 }
-
-#logo a,
-.breadcrumbs a {
-    font-size:14px;
+a, a:link, a:visited, a:focus, a:active {
+    color:#DD4814;
+    text-decoration: none;
 }
-
+a:hover {
+    text-decoration: underline;
+}
+nav.breadcrumbs {
+	clear: none;
+}
+nav.breadcrumbs ol {
+	margin: 0;
+	padding: 0;
+}
 #nav {
     margin:5px 0 0 0;
     border-top:1px solid #454545;
@@ -99,16 +84,14 @@ nav.breadcrumbs ol {
     float:left;
     width:100%;   
 }
-
 #nav ul.menu li a,
 #nav ul.menu li span.separator {
-    padding:2px 15px 2px 0;
+    padding:2px 6px;
     color:#fff;
     font-weight:normal;
     font-size:1.2em;
     line-height:1.4em;
 }
-
 #nav ul.menu li.parent:hover {
     background-color: #666666;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#666666), to(#454545)); /* Saf4+, Chrome */
@@ -125,7 +108,6 @@ nav.breadcrumbs ol {
     webkit-background-clip: padding-box;
     background-clip: padding-box;     
 }
-
 #nav ul.menu ul {
     background-color: #454545;
     -moz-border-radius: 0 6px 6px 6px; 
@@ -135,7 +117,6 @@ nav.breadcrumbs ol {
     webkit-background-clip: padding-box;
     background-clip: padding-box;    
 }
-
 #style-switch {
     float: left;
     clear: none;
@@ -146,7 +127,6 @@ nav.breadcrumbs ol {
     padding:4px 2px 4px 6px;
     margin: 0 5px 0 0;       
 }
-
 #style-switch li {
     padding: 0;
     -moz-border-radius: 10px; 
@@ -160,39 +140,32 @@ nav.breadcrumbs ol {
     -webkit-box-shadow:  1px 1px 6px #888; 
     box-shadow: 1px 1px 6px #000;
 }
-
 #style-switch a {
     color:#333;
     display:block;
     line-height:1em;
     text-shadow: 0px 0px 1px #666;    
 }
-
 #style-switch .close {
     background: #DD4814;    
 }
-
 #style-switch .close a {
-    padding: 1px 0 0 5px;    
+    padding: 1px 0 0 4px;    
 }
-
 #style-switch .minimize,
 #style-switch .restore {
     background: -webkit-gradient(linear, left top, left bottom, from(#333333), to(#888888));
     background: -moz-linear-gradient(top, #333333, #888888);    
 }
-
 #style-switch .minimize a {
     padding: 0 0 0 5px;
     font-size:1em;
     line-height:.5em;
 }
-
 #style-switch .restore a {
-    padding: 1px 0 0 5px;
+    padding: 1px 0 0 4px;
     font-size:.8em
 }
-
 #style-switch li:hover {    
   background-color: #999999;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#999999), to(#666666)); 
