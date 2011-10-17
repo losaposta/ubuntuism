@@ -139,36 +139,196 @@ template:
 
 8. While we're at it, let's go ahead and change the module position assignment of the Main Menu module from *position-7* to *nav*. Set the module assignment to *On All Pages*.
 
-8. As you can see, the breadcrumbs are not where we want them, so we will now override the default layout of the template. This is done by either editing the template's root index.php file or by creating an extended template override, something unique to Construct.
+9. As you can see, the breadcrumbs are not where we want them, so we will now override the default layout of the template. This is done by either editing the template's root index.php file or by creating an extended template override, something unique to Construct.
 	* Open the installation package and copy the <b>layouts/index.php</b> file to the <b>layouts</b> directory of your
 	template.
 	* We created the layout override capability to allow for you to be able to create custom layouts and to be able to later upgrade the template without loosing your customizations.
 
-9. Open this file ( layouts/index.php ) in your editor and cut/paste lines 175-177 to directly after the logo on line 103.
+10. Open this file ( layouts/index.php ) in your editor and cut/paste lines 175-177 to directly after the logo on line 103.
 	<pre>
-	&lt;?php if ($this->countModules('breadcrumbs')) : ?>
+	&lt;?php if ($this->countModules('breadcrumbs')) : ?&gt;
 		&lt;jdoc:include type="module" name="breadcrumbs" />
-	&lt;?php endif; ?></pre>
+	&lt;?php endif; ?&gt;</pre>
 
-10. While we are editing the layout of the template, let's remove the in-page links by deleting lines  113-124
+11. While we are editing the layout of the template, let's remove the in-page links by deleting lines  113-124
 	<pre>
 	&lt;nav&gt;
 		&lt;ul id="access"&gt;
 		  &lt;li&gt;Jump to:&lt;/li&gt;
-		  &lt;li&gt;<a href="&lt;?php $url->setFragment('content'); echo $url->toString();?>" class="to-content">Content</a>&lt;/li&gt;
-		  &lt;?php if ($this->countModules('nav')) : ?>
-			&lt;li&gt;<a href="&lt;?php $url->setFragment('nav'); echo $url->toString();?>" class="to-nav">Navigation</a>&lt;/li&gt;
-		  &lt;?php endif; ?>
-		  &lt;?php if ($contentBelowCount) : ?>
-			&lt;li&gt;<a href="&lt;?php $url->setFragment('additional'); echo $url->toString();?>" class="to-additional">Additional Information</a>&lt;/li&gt
-		  &lt;?php endif; ?>
+		  &lt;li&gt;<a href="&lt;?php $url->setFragment('content'); echo $url->toString();?&gt;" class="to-content"&gt;Content</a>&lt;/li&gt;
+		  &lt;?php if ($this->countModules('nav')) : ?&gt;
+			&lt;li&gt;<a href="&lt;?php $url->setFragment('nav'); echo $url->toString();?&gt;" class="to-nav"&gt;Navigation</a>&lt;/li&gt;
+		  &lt;?php endif; ?&gt;
+		  &lt;?php if ($contentBelowCount) : ?&gt;
+			&lt;li&gt;<a href="&lt;?php $url->setFragment('additional'); echo $url->toString();?&gt;" class="to-additional"&gt;Additional Information</a>&lt;/li&gt
+		  &lt;?php endif; ?&gt;
 		&lt;/ul&gt;
 	&lt;/nav&gt;</pre>
 
-11. We'll also move the main navigation, lines 167-171, to the final portion of the primary header, so that it now begins at line 121
+12. We'll also move the main navigation, lines 167-171, to the final portion of the primary header, so that it now begins at line 121
    <pre>
-	<?php if ($this->countModules('nav')) : ?>
-		<nav id="nav" class="clear clearfix">
+	&tl;?php if ($this->countModules('nav')) : ?&gt;
+		<nav id="nav" class="clear clearfix"&gt;
 			<jdoc:include type="modules" name="nav" style="raw" />
 		</nav><!-- end nav-->
-	<?php endif; ?></pre>
+	&tl;?php endif; ?&gt;</pre>
+
+13. Let's go ahead and load that custom font, courtesy of Google web Fonts. To do so, simply add the following code to the first block of php code of layouts/index.php:
+	<pre>$doc->addStyleSheet('http://fonts.googleapis.com/css?family=Ubuntu');</pre>
+
+14. Let's get back to writing some more CSS, this time to style the main navigation. First, let's add some vertical spacing, borders and *float to fix*
+	<pre>
+	#nav {
+		margin:5px 0 0 0;
+		border-top:1px solid #454545;
+		border-bottom:1px solid #333;
+		float:left;
+		width:100%;
+	}</pre>
+
+15. Next, we'll add a bit of padding, color and font styles to the menu items
+	<pre>
+	#nav ul.menu li a,
+	#nav ul.menu li span.separator {
+		padding:2px 6px;
+		color:#fff;
+		font-weight:normal;
+		font-size:1.2em;
+		line-height:1.4em;
+	}</pre>
+
+16. Let's go ahead and add some style to our parent menu items
+	<pre>
+	#nav ul.menu li.parent:hover {
+		background-color: #666666;
+		background-image: -webkit-gradient(linear, left top, left bottom, from(#666666), to(#454545)); /* Saf4+, Chrome */
+		background-image: -webkit-linear-gradient(top, #666666, #454545); /* Chrome 10+, Saf5.1+ */
+		background-image:    -moz-linear-gradient(top, #666666, #454545); /* FF3.6 */
+		background-image:     -ms-linear-gradient(top, #666666, #454545); /* IE10 */
+		background-image:      -o-linear-gradient(top, #666666, #454545); /* Opera 11.10+ */
+		background-image:         linear-gradient(top, #666666, #454545);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#666666', EndColorStr='#454545');
+		-moz-border-radius: 6px 6px 0 0;
+		-webkit-border-radius: 6px 6px 0 0;
+		border-radius: 6px 6px 0 0;
+		-moz-background-clip: padding;
+		webkit-background-clip: padding-box;
+		background-clip: padding-box;
+	}</pre>
+
+17. Let's not forget the children
+	<pre>
+	#nav ul.menu ul {
+		background-color: #454545;
+		-moz-border-radius: 0 6px 6px 6px;
+		-webkit-border-radius: 0 6px 6px 6px;
+		border-radius: 0 6px 6px 6px;
+		-moz-background-clip: padding;
+		webkit-background-clip: padding-box;
+		background-clip: padding-box;
+	}</pre>
+
+18. The close, minimize and maximize buttons can be simulated with the style sheet switcher and the addition of two style sheets.
+	NOTE: We will leave the Layout Aid parameter set to Hide, as this also loads the style sheet switcher, but with a different set of style sheets.
+
+	We start be adding manually enabling the style sheet switcher, and loading of two custom stylesheets, by adding the following code to our custom layout ( layouts/index.php ).
+	<pre>
+	$doc->addCustomTag('<link rel="alternate stylesheet" href="'.$template.'/css/close.css" type="text/css" media="screen" title="close" />');
+	$doc->addCustomTag('<link rel="alternate stylesheet" href="'.$template.'/css/minimize.css" type="text/css" media="screen" title="minimize" />');
+	$doc->addScript($template.'/js/styleswitch.js')</pre>
+
+	These two style sheets need to be created, and added to the css directorty of your template.
+
+	close.css needs to only contain <pre>
+	body {
+    	display:none;
+	}</pre>
+
+	minimize.css needs to only contain <pre>
+	body {
+		margin-top:55%;
+		height:35px;
+		overflow:hidden;
+	}</pre>
+	Adjust either to suit your personal tastes.
+
+19. Go ahead and move the follow code (lines 166-122), to just before the logo on line 106
+	<pre>
+	&tl;?php if ($enableSwitcher) : ?&gt;
+		&lt;ul id="style-switch"&gt;
+			&lt;li&gt;&lt;a href="#" onclick="setActiveStyleSheet('wireframe'); return false;" title="Wireframe"&gt;Wireframe</a>&lt;/li&gt;
+			&lt;li&gt;&lt;a href="#" onclick="setActiveStyleSheet('diagnostic'); return false;" title="Diagnostic"&gt;Diagnostic Mode</a>&lt;/li&gt;
+			&lt;li&gt;&lt;a href="#" onclick="setActiveStyleSheet('normal'); return false;" title="Normal"&gt;Normal Mode</a>&lt;/li&gt;
+		&lt;/ul&gt;
+	&tl;?php endif; ?&gt;</pre>
+
+	And change them to:
+	<pre>
+	&lt;ul id="style-switch"&gt;
+		&lt;li class="close"&gt;&lt;a href="#" onclick="setActiveStyleSheet('close'); return false;" title="close"&gt;x</a>&lt;/li&gt;
+		&lt;li class="minimize"&gt;&lt;a href="#" onclick="setActiveStyleSheet('minimize'); return false;" title="minimize"&gt;&#95;</a>&lt;/li&gt;
+		&lt;li class="restore"&gt;&lt;a href="#" onclick="setActiveStyleSheet('restore'); return false;" title="restore"&gt;&#91;&#93;</a>&lt;/li&gt;
+	&lt;/ul&gt;</pre>
+
+20. The final touch is to add the following css to your custom style sheet to bring the similated buttons to life
+	<pre>
+	#style-switch {
+		float: left;
+		clear: none;
+		background:#333333;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		border-radius: 10px;
+		padding:4px 2px 4px 6px;
+		margin: 0 5px 0 0;
+	}
+	#style-switch li {
+		padding: 0;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		border-radius: 10px;
+		height: 16px;
+		width: 16px;
+		float: left;
+		margin-right:5px;
+		-moz-box-shadow: 1px 1px 6px #888;
+		-webkit-box-shadow:  1px 1px 6px #888;
+		box-shadow: 1px 1px 6px #000;
+	}
+	#style-switch a {
+		color:#333;
+		display:block;
+		line-height:1em;
+		text-shadow: 0px 0px 1px #666;
+	}
+	#style-switch .close {
+		background: #DD4814;
+	}
+	#style-switch .close a {
+		padding: 1px 0 0 4px;
+	}
+	#style-switch .minimize,
+	#style-switch .restore {
+		background: -webkit-gradient(linear, left top, left bottom, from(#333333), to(#888888));
+		background: -moz-linear-gradient(top, #333333, #888888);
+	}
+	#style-switch .minimize a {
+		padding: 0 0 0 5px;
+		font-size:1em;
+		line-height:.5em;
+	}
+	#style-switch .restore a {
+		padding: 1px 0 0 4px;
+		font-size:.8em
+	}
+	#style-switch li:hover {
+	  background-color: #999999;
+	  background-image: -webkit-gradient(linear, left top, left bottom, from(#999999), to(#666666));
+	  background-image: -webkit-linear-gradient(top, #999999, #666666);
+	  background-image:    -moz-linear-gradient(top, #999999, #666666);
+	  background-image:     -ms-linear-gradient(top, #999999, #666666);
+	  background-image:      -o-linear-gradient(top, #999999, #666666);
+	  background-image:         linear-gradient(top, #999999, #666666);
+	  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#999999', EndColorStr='#666666');
+	}</pre>
+
