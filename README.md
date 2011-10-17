@@ -5,7 +5,7 @@ Please see http://betweenbrain.github.com/ubuntuism for the introductory present
 #How to use this framework#
 The Construct Template Development Framework is a code based solution with the goal of streamlining the process of creating one-of-a-kind Joomla! templates, while not limiting your ability to add every bit of your creativity. To get started, install Construct like you would any Joomla extension. Then add a new style sheet to the CSS directory of Construct and select that style sheet in the template's settings from within template manager of Joomla.
 
-#Step by step#
+#Step by step guide to creating Ubuntuism#
 For the workshop, we will recreating the Ubuntu 11.04 classic desktop experience as a Joomla template.
 
 1. Start with a clean installation of Joomla, preferably 1.7, with sample data installed.
@@ -17,7 +17,7 @@ install it as you would any extension.
 created in the Custom Style Sheet drop-down. While we're in there, under the Layout parameter section, select Off next to Use CSS Sticky Footer. Click Save & Close.
 6. Open the style sheet that you just created in your favorite editor and begin adding the custom styles for this template:
 
-	a. Set the background image (available within the images directory of the installer file that you downloaded,
+	Set the background image (available within the images directory of the installer file that you downloaded,
 	or at https://github.com/betweenbrain/ubuntuism/raw/master/images/wallpaper.jpg) :
 	<pre>
 	html {
@@ -27,14 +27,14 @@ created in the Custom Style Sheet drop-down. While we're in there, under the Lay
     	background-attachment:fixed;
 	}</pre>
 
-	b. Set the body width to 90.5em and give it some larger top and bottom margins:
+	Set the body width to 90.5em and give it some larger top and bottom margins:
 	<pre>
 	body {
     	max-width:90.5em;
     	margin:50px auto;
     }</pre>
 
-    c. Go ahead and add a dark aubergine background, with an opacity of .8
+    Go ahead and add a dark aubergine background, with an opacity of .8
     <pre>
     body {
     	max-width:90.5em;
@@ -42,7 +42,7 @@ created in the Custom Style Sheet drop-down. While we're in there, under the Lay
     	background: rgba(44, 0, 30,.8);
     }</pre>
 
-    d. Set the bod font to 'Ubuntu' (we'll add this font later), and set the font color to white
+    Set the body font to 'Ubuntu' (we'll add this font later), and set the font color to white
     <pre>
     body {
     	max-width:90.5em;
@@ -52,7 +52,7 @@ created in the Custom Style Sheet drop-down. While we're in there, under the Lay
     	color:#fff;
     }</pre>
 
-	e. Give the body a border, some nice rounded corners and a drop shadow:
+	Give the body a border, some nice rounded corners and a drop shadow:
 	 <pre>
 	body {
     	max-width:90.5em;
@@ -71,7 +71,7 @@ created in the Custom Style Sheet drop-down. While we're in there, under the Lay
 		box-shadow: 0px 0px 36px #000;
 	}</pre>
 
-	f. Let's give the primary header a nice grey gradient background and rounded corners to match the body
+	Let's give the primary header a nice grey gradient background and rounded corners to match the body
 	<pre>
 	#header {
 		background:#333;
@@ -93,7 +93,7 @@ created in the Custom Style Sheet drop-down. While we're in there, under the Lay
 		filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#666666', EndColorStr='#333333');
 	}</pre>
 
-	g. Since Construct gives the primary header gutter a default of 10px, we need to override that style to line it
+	Since Construct gives the primary header gutter a default margin of 10px, we need to override that style to line it
 	up with the body. We'll add some padding while we are at it.
 	 <pre>
 	 #header .gutter {
@@ -101,7 +101,7 @@ created in the Custom Style Sheet drop-down. While we're in there, under the Lay
 		margin:0 1em .5em 0;
 	}</pre>
 
-	h. Once again, we will override Construct's default style, this time for the logo
+	Once again, we will override Construct's default style, this time for the logo. Note that we are setting the text-indent to auto so that the text can be displayed instead of an image.
 	<pre>
 	#logo {
 		font-size: 1em;
@@ -123,7 +123,7 @@ created in the Custom Style Sheet drop-down. While we're in there, under the Lay
     	content:": /"
 	}</pre>
 
-	i. Let's customize the color and behavior of the anchors tags
+	Let's customize the color and decoration of the anchors tags
 	<pre>
 	a, a:link, a:visited, a:focus, a:active {
 		color:#DD4814;
@@ -137,18 +137,18 @@ created in the Custom Style Sheet drop-down. While we're in there, under the Lay
 
 8. While we're at it, let's go ahead and change the module position assignment of the Main Menu module from *position-7* to *nav*. Set the module assignment to *On All Pages*.
 
-9. As you can see, the breadcrumbs are not where we want them, so we will now override the default layout of the template. This is done by either editing the template's root index.php file or by creating an extended template override, something unique to Construct.
+9. As you preview the site, we can see that the breadcrumbs are not where we want them, so we will now override the default layout of the template. This is done by either editing the template's root index.php file or by creating an <a href="http://construct-framework.com/intermediate/extended-template-overrides">extended template override</a>, something unique to Construct.
 	* Open the installation package and copy the <b>layouts/index.php</b> file to the <b>layouts</b> directory of your
 	template.
 	* We created the layout override capability to allow for you to be able to create custom layouts and to be able to later upgrade the template without loosing your customizations.
 
-10. Open this file ( layouts/index.php ) in your editor and cut/paste lines 175-177 to directly after the logo on line 103.
+10. Open this file ( layouts/index.php ) in your editor and cut/paste the following lines of code (175-177) to directly after the logo on line 103.
 	<pre>
 	&lt;?php if ($this->countModules('breadcrumbs')) : ?&gt;
 		&lt;jdoc:include type="module" name="breadcrumbs" />
 	&lt;?php endif; ?&gt;</pre>
 
-11. While we are editing the layout of the template, let's remove the in-page links by deleting lines  113-124
+11. While we are editing the layout of the template, let's remove the in-page links by deleting the following lines of code (113-124)
 	<pre>
 	&lt;nav&gt;
 		&lt;ul id="access"&gt;
