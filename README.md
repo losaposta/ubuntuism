@@ -329,5 +329,3 @@ created in the Custom Style Sheet drop-down. While we're in there, under the Lay
 	  background-image:         linear-gradient(top, #999999, #666666);
 	  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#999999', EndColorStr='#666666');
 	}</pre>
-
-The 
