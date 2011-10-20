@@ -80,11 +80,13 @@
 		<filename>images/logo.png</filename>
 		<filename>images/selector-arrow.png</filename>
 		<filename>images/trans.gif</filename>
+		<filename>images/wallpaper.jpg</filename>
 		<filename>js/DD_belatedPNG_0.0.8a-min.js</filename>
 		<filename>js/index.html</filename>
 		<filename>js/PIE.htc</filename>
 		<filename>js/styleswitch.js</filename>
 		<filename>layouts/index.html</filename>
+		<filename>layouts/index.php</filename>
 		<filename>layouts/article/index.html</filename>
 		<filename>layouts/category/index.html</filename>
 		<filename>layouts/component/index.html</filename>
