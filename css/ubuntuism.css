@@ -117,6 +117,9 @@ nav.breadcrumbs ol {
     webkit-background-clip: padding-box;
     background-clip: padding-box;    
 }
+/*
+ * Close, minimize buttons
+ */
 #style-switch {
     float: left;
     clear: none;
@@ -176,3 +179,9 @@ nav.breadcrumbs ol {
   background-image:         linear-gradient(top, #999999, #666666);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#999999', EndColorStr='#666666'); 
 }
+/*
+ * Misc tweaks
+ */
+.category .cat-list-row0 {
+	background: rgba(94, 39, 80,.8);
+	}

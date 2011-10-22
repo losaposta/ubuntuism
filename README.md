@@ -1,24 +1,19 @@
-A template developed to demonstrate rapid template development for the Joomla! CMS. It is a modified version of Construct5, a unified / HTML5 version of the Construct Template Development Framework from http://construct-framework.com
+Ubuntuism is a demo template developed to explore rapid template development for the Joomla! CMS. Ubuntuism is built with a modified version of Construct5, a unified HTML5 version of the Construct Template Development Framework from http://construct-framework.com
 
-Please see http://betweenbrain.github.com/ubuntuism for the introductory presentation.
+See http://betweenbrain.github.com/ubuntuism for the introductory presentation.
 
-#How to use this framework#
-The Construct Template Development Framework is a code based solution with the goal of streamlining the process of creating one-of-a-kind Joomla! templates, while not limiting your ability to add every bit of your creativity. To get started, install Construct like you would any Joomla extension. Then add a new style sheet to the CSS directory of Construct and select that style sheet in the template's settings from within template manager of Joomla.
+#To Get Started With Construct#
+The Construct Template Development Framework is a code based solution with the goal of streamlining the process of creating one-of-a-kind Joomla! templates while not limiting your creative abilities. To get started with this demo version of Construct, <a href="https://github.com/betweenbrain/ubuntuism/zipball/master">Download</a> and install the template as you would any extension. Once installed, set *Ubuntuism* as your default template and start creating your unique look by adding your unique styles to the demo.css style sheet. Learn more about developing custom templates with Construct by visiting http://construct-framework.com
 
-#Step by step guide to creating Ubuntuism#
-For the workshop, we will recreating the Ubuntu 11.04 classic desktop experience as a Joomla template.
+#Step By Step Guide To Creating Ubuntuism#
+For this exploration, we will recreating the Ubuntu 11.04 classic desktop experience as a Joomla template.
 
-1. Start with a clean installation of Joomla, preferably 1.7, with sample data installed.
-2. <a href="https://github.com/betweenbrain/ubuntuism/zipball/master">Download</a> the master branch zip and
-install it as you would any extension.
-3. Set *ubuntuism* as the default template in Joomla's template manager.
-4. Create a blank styles sheet, named whatever you'd like, within the CSS directory of the *ubuntuism* template (i.e. var/www/joomla/templates/ubuntuism/css ).
-5. Open *ubuntuism* in Template Manager: Styles (in Joomla 1.7) and select the name of the style sheet that you just
-created in the Custom Style Sheet drop-down. While we're in there, under the Layout parameter section, select Off next to Use CSS Sticky Footer. Click Save & Close.
-6. Open the style sheet that you just created in your favorite editor and begin adding the custom styles for this template:
+1. Start with a clean installation of Joomla, preferably the latest version, with sample data installed.
+2. Install the *Ubuntuism* demo template.
+3. Set *Ubuntuism* as the default template in Joomla's template manager.
+4. Open */templates/ubuntuism/demo.css* in your favorite editor and begin adding the custom styles for this template:
 
-	Set the background image (available within the images directory of the installer file that you downloaded,
-	or at https://github.com/betweenbrain/ubuntuism/raw/master/images/wallpaper.jpg) :
+	Define the background image (already installed in the images directory for you)
 	<pre>
 	html {
     	background-image: url('../images/wallpaper.jpg');
@@ -27,7 +22,7 @@ created in the Custom Style Sheet drop-down. While we're in there, under the Lay
     	background-attachment:fixed;
 	}</pre>
 
-	Set the body width to 90.5em and give it some larger top and bottom margins:
+	Set the body width to 90.5em and give it some larger top and bottom margins
 	<pre>
 	body {
     	max-width:90.5em;
@@ -133,22 +128,21 @@ created in the Custom Style Sheet drop-down. While we're in there, under the Lay
     	text-decoration: underline;
 	}</pre>
 
-7. We will now customize the look of the breadcrumbs, so let's first create a breadcrumbs module in Joomla, assign it to the "breadcrumbs" position. Set Show "You are here" to No.
+5. We will now customize the look of the breadcrumbs, so let's first create a breadcrumbs module in Joomla, assign it to the "breadcrumbs" position. Set Show "You are here" to No.
 
-8. While we're at it, let's go ahead and change the module position assignment of the Main Menu module from *position-7* to *nav*. Set the module assignment to *On All Pages*.
+6. While we're at it, let's go ahead and change the module position assignment of the Main Menu module from *position-7* to *nav*. Set the module assignment to *On All Pages*.
 
-9. As you preview the site, we can see that the breadcrumbs are not where we want them, so we will now override the default layout of the template. This is done by either editing the template's root index.php file or by creating an <a href="http://construct-framework.com/intermediate/extended-template-overrides">extended template override</a>, something unique to Construct.
-	* Open the installation package and copy the <b>layouts/index.php</b> file to the <b>layouts</b> directory of your
-	template.
-	* We created the layout override capability to allow for you to be able to create custom layouts and to be able to later upgrade the template without loosing your customizations.
+7. As you preview the site, we can see that the breadcrumbs are not where we want them, so we will now override the default layout of the template. This is done by either editing the template's root index.php file or by creating an <a href="http://construct-framework.com/intermediate/extended-template-overrides">extended template override</a>, something unique to Construct.
+	* For this demo, the extended template override has already been installed to *templates/ubuntuism/layouts/index.php*.
+	* The layout override capability was created to allow you to create custom layouts, if you don't like the default one, and to still be able to upgrade the template without loosing your customizations.
 
-10. Open this file ( layouts/index.php ) in your editor and cut/paste the following lines of code (175-177) to directly after the logo on line 103.
+8. Open *templates/ubuntuism/layouts/index.php* in your favorite editor and move the following lines of code (175-177) to directly after the logo on line 103.
 	<pre>
 	&lt;?php if ($this->countModules('breadcrumbs')) : ?&gt;
 		&lt;jdoc:include type="module" name="breadcrumbs" />
 	&lt;?php endif; ?&gt;</pre>
 
-11. While we are editing the layout of the template, let's remove the in-page links by deleting the following lines of code (113-124)
+9. While we are editing the layout override of the template, let's remove the in-page links by deleting the following lines of code (113-124)
 	<pre>
 	&lt;nav&gt;
 		&lt;ul id="access"&gt;
@@ -163,7 +157,7 @@ created in the Custom Style Sheet drop-down. While we're in there, under the Lay
 		&lt;/ul&gt;
 	&lt;/nav&gt;</pre>
 
-12. We'll also move the main navigation, lines 167-171, to the final portion of the primary header, so that it now begins at line 121
+10. We'll also move the main navigation, lines 167-171, to the final portion of the primary header, so that it now begins at line 121
    <pre>
 	&tl;?php if ($this->countModules('nav')) : ?&gt;
 		&lt;nav id="nav" class="clear clearfix"&gt;
@@ -171,10 +165,10 @@ created in the Custom Style Sheet drop-down. While we're in there, under the Lay
 		&lt;/nav&gt;<!-- end nav-->
 	&tl;?php endif; ?&gt;</pre>
 
-13. Let's go ahead and load that custom font, courtesy of Google web Fonts. To do so, simply add the following code to the first block of php code of layouts/index.php:
+11. Let's go ahead and load that custom font, courtesy of Google web Fonts. To do so, simply add the following code to the first block of php code of layouts/index.php:
 	<pre>$doc->addStyleSheet('http://fonts.googleapis.com/css?family=Ubuntu');</pre>
 
-14. Let's get back to writing some more CSS, this time to style the main navigation. First, let's add some vertical spacing, borders and *float to fix*
+12. Let's get back to writing some more CSS, this time to style the main navigation. First, let's add some vertical spacing, borders and *float to fix*
 	<pre>
 	#nav {
 		margin:5px 0 0 0;
@@ -184,7 +178,7 @@ created in the Custom Style Sheet drop-down. While we're in there, under the Lay
 		width:100%;
 	}</pre>
 
-15. Next, we'll add a bit of padding, color and font styles to the menu items
+13. Next, we'll add a bit of padding, color and font styles to the menu items
 	<pre>
 	#nav ul.menu li a,
 	#nav ul.menu li span.separator {
@@ -195,7 +189,7 @@ created in the Custom Style Sheet drop-down. While we're in there, under the Lay
 		line-height:1.4em;
 	}</pre>
 
-16. Let's go ahead and add some style to our parent menu items
+14. Let's go ahead and add some style to our parent menu items
 	<pre>
 	#nav ul.menu li.parent:hover {
 		background-color: #666666;
@@ -214,7 +208,7 @@ created in the Custom Style Sheet drop-down. While we're in there, under the Lay
 		background-clip: padding-box;
 	}</pre>
 
-17. Let's not forget the children
+15. Let's not forget the children
 	<pre>
 	#nav ul.menu ul {
 		background-color: #454545;
@@ -226,7 +220,7 @@ created in the Custom Style Sheet drop-down. While we're in there, under the Lay
 		background-clip: padding-box;
 	}</pre>
 
-18. The close, minimize and maximize buttons can be simulated with the style sheet switcher and the addition of two style sheets.
+16. The close, minimize and maximize buttons can be simulated with the style sheet switcher and the addition of two style sheets.
 	NOTE: We will leave the Layout Aid parameter set to Hide, as this also loads the style sheet switcher, but with a different set of style sheets.
 
 	We start be adding manually enabling the style sheet switcher, and loading of two custom stylesheets, by adding the following code to our custom layout ( layouts/index.php ).
@@ -250,7 +244,7 @@ created in the Custom Style Sheet drop-down. While we're in there, under the Lay
 	}</pre>
 	Adjust either to suit your personal tastes.
 
-19. Go ahead and move the follow code (166-122), to just before the logo on line 106
+17. Go ahead and move the follow code (166-122), to just before the logo on line 106
 	<pre>
 	&tl;?php if ($enableSwitcher) : ?&gt;
 		&lt;ul id="style-switch"&gt;
@@ -268,7 +262,7 @@ created in the Custom Style Sheet drop-down. While we're in there, under the Lay
 		&lt;li class="restore"&gt;&lt;a href="#" onclick="setActiveStyleSheet('restore'); return false;" title="restore"&gt;&#91;&#93;&lt;/a&gt;&lt;/li&gt;
 	&lt;/ul&gt;</pre>
 
-20. The final touch is to add the following css to your custom style sheet to bring the similated buttons to life
+18. The final touch is to add the following css to your custom style sheet to bring the simulated buttons to life
 	<pre>
 	#style-switch {
 		float: left;

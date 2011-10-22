@@ -51,6 +51,7 @@
 		<filename>css/component/index.html</filename>
 		<filename>css/item/index.html</filename>
 		<filename>css/section/index.html</filename>
+		<filename>css/demo.css</filename>
 		<filename>css/diagnostic.css</filename>
 		<filename>css/editor.css</filename>
 		<filename>css/ie6.css</filename>
@@ -183,7 +184,7 @@
 					<option value="1">Yes</option>
 					<option value="0">No</option>
 				</field>		
-				<field name="customStyleSheet" type="filelist" default="example.css" label="TPL_UBUNTUISM_CUSTOM_STYLE_SHEET_LABEL" directory="templates/ubuntuism/css" filter="\.css" exclude="core-classes-ids\.css|diagnostic\.css|editor\.css|modal\.css|normal\.css|print\.css|rtl\.css|screen\.css|ie6\.css|wireframe\.css|mobile\.css|mobile\.css" description="TPL_UBUNTUISM_CUSTOM_STYLE_SHEET_DESC" />
+				<field name="customStyleSheet" type="filelist" default="demo.css" label="TPL_UBUNTUISM_CUSTOM_STYLE_SHEET_LABEL" directory="templates/ubuntuism/css" filter="\.css" exclude="core-classes-ids\.css|diagnostic\.css|editor\.css|modal\.css|normal\.css|print\.css|rtl\.css|screen\.css|ie6\.css|wireframe\.css|mobile\.css|mobile\.css" description="TPL_UBUNTUISM_CUSTOM_STYLE_SHEET_DESC" />
 				<field name="setGeneratorTag" type="text" default="Construct Framework | http://Construct-Framework.com" label="Generator Meta Tag" description="Customize the generator meta tag output by your template." size="56" />
 			</fieldset>
 			<fieldset name="IE">
@@ -228,7 +229,7 @@
 				  <option value="1">Yes</option>
 				  <option value="0">No</option>
 				</field>
-				<field name="useStickyFooter" type="radio" default="1" label="TPL_UBUNTUISM_USE_STICKY_FOOTER_LABEL" description="TPL_UBUNTUISM_USE_STICKY_FOOTER_DESC">
+				<field name="useStickyFooter" type="radio" default="0" label="TPL_UBUNTUISM_USE_STICKY_FOOTER_LABEL" description="TPL_UBUNTUISM_USE_STICKY_FOOTER_DESC">
         			<option value="1">On</option>
         			<option value="0">Off</option>
 		    	</field>
@@ -247,7 +248,7 @@
 					<option value="1">Before Content</option>
 					<option value="0">After Content</option>
 				</field>
-				<field name="mPageDataTheme" type="list" default="Black" label="TPL_UBUNTUISM_MPAGEDATATHEME_LABEL" description="TPL_UBUNTUISM_MPAGEDATATHEME_DESC">
+				<field name="mPageDataTheme" type="list" default="b" label="TPL_UBUNTUISM_MPAGEDATATHEME_LABEL" description="TPL_UBUNTUISM_MPAGEDATATHEME_DESC">
 					<option value="">- None Selected -</option>
 					<option value="a">Black</option>
 					<option value="b">Blue</option>
@@ -317,7 +318,7 @@
       <option value="1">Show</option>
     	<option value="0">Hide</option>
     </param>
-		<param name="customStyleSheet" type="filelist" default="example.css" label="Custom style sheet" directory="templates/ubuntuism/css" filter="\.css" exclude="core-css-classes-ids\.css|diagnostic\.css|editor\.css|modal\.css|normal\.css|print\.css|rtl\.css|screen\.css|core-classes-ids\.css|ie6\.css|overrides\.css|mobile\.css|wireframe\.css" description="Name of the style sheet that contains your custom CSS declarations. Default is custom.css." />
+		<param name="customStyleSheet" type="filelist" default="demo.css" label="Custom style sheet" directory="templates/ubuntuism/css" filter="\.css" exclude="core-css-classes-ids\.css|diagnostic\.css|editor\.css|modal\.css|normal\.css|print\.css|rtl\.css|screen\.css|core-classes-ids\.css|ie6\.css|overrides\.css|mobile\.css|wireframe\.css" description="Name of the style sheet that contains your custom CSS declarations. Default is custom.css." />
 		<param name="setGeneratorTag" type="text" default="Construct Framework | http://Construct-Framework.com" label="Generator Meta Tag" description="Customize the generator meta tag output by your template." size="56" />
 <param type="panel" title="Internet Explorer" />		
 		<param name="IECSS3" type="radio" default="1" label="Add CSS3 Support to IE" description="Enable the use of PIE (http://css3pie.com/) to add CSS3 support to Internet Explorer version 8 and before. Also adds pie_hover class to non-link items on hover. For performance reason, you must define the tagret elements below.">
@@ -359,7 +360,7 @@
 		  <option value="1">Yes</option>
 		  <option value="0">No</option>
 		</param>
-		<param name="useStickyFooter" type="radio" default="1" label="Use CSS Sticky Footer" description="Enable the use a CSS Sticky Footer, which requires a fixed height. Dynamic content of varying sizes may require special attention when using this.">
+		<param name="useStickyFooter" type="radio" default="0" label="Use CSS Sticky Footer" description="Enable the use a CSS Sticky Footer, which requires a fixed height. Dynamic content of varying sizes may require special attention when using this.">
         	<option value="1">Yes</option>
         	<option value="0">No</option>
     	</param>
@@ -377,7 +378,7 @@
 				<option value="1">Before Content</option>
 				<option value="0">After Content</option>
 			</param>
-			<param name="mPageDataTheme" type="list" default="Black" label="Page Theme" description="The jQuery Mobile swatch theme to apply to the page portion of the mobile template. See http://jquerymobile.com/test/docs/api/themes.html for more details.">
+			<param name="mPageDataTheme" type="list" default="b" label="Page Theme" description="The jQuery Mobile swatch theme to apply to the page portion of the mobile template. See http://jquerymobile.com/test/docs/api/themes.html for more details.">
 				<option value="">- None Selected -</option>
 				<option value="a">Black</option>
 				<option value="b">Blue</option>
